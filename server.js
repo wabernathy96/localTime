@@ -32,14 +32,14 @@ db.sequelize.sync({ force: true }).then(function() {
   });
 });
 
+// Connect Sequelize to the db
+const sequelize = new Sequelize('mysql://root:@localhost:3306/testBase');
 
-// const sequelize = new Sequelize('mysql://root:@localhost:3306/testBase');
-
-// sequelize
-//   .authenticate()
-//   .then(() => {
-//     console.log('Connection has been established successfully.');
-//   })
-//   .catch(err => {
-//     console.error('Unable to connect to the database:', err);
-//   });
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
