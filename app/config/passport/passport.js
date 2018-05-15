@@ -80,7 +80,7 @@ module.exports = (passport, user) => {
                             }
                         );
                     }
-                    if (!isValidPass(user.password, password)) {
+                    if (!isValidPass (user.password, password)) {
                         return done(null, false, 
                             {
                                 message: 'Incorrect password.'

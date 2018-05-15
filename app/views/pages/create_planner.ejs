@@ -1,0 +1,29 @@
+<h1><a href="/dash">Local Time</a></h1>
+<p>^^^^^leads to dash^^^^^</p>
+
+<h1> CREATE PLANNER </h1>
+
+<main class="main">
+    <div class="row">
+        <div class="col-md-12">
+            
+            <form action="/planner/results" method="GET">
+                <label for="mountains">Mountains </label>
+                <input type="checkbox" name="mountains" />
+                <h4>or</h4>
+                <label for="beach">Beach </label>
+                <input type="checkbox" name="beach" />
+                <br /><br /><br />
+                <button type="submit">
+                    Submit
+                </button>
+            </form>
+
+            <form action="/planner" method="GET">
+                <button type="submit">
+                    Cancel
+                </button>
+            </form>
+        </div>
+    </div>
+</main>

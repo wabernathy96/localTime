@@ -1,5 +1,9 @@
+// ROUTES FOR AUTH USERS
+
+// Require exported methods from auth_controller
 var authC = require('../controllers/auth_controller');
- 
+
+// Export routes to server.js
 module.exports = (app, passport) => {
     
     app.get('/dash', isLoggedIn, authC.dash);
@@ -19,7 +23,6 @@ module.exports = (app, passport) => {
     app.post('/login', passport.authenticate          ('local-login', 
             {
                 successRedirect: '/dash',
- 
                 failureRedirect: '/login'
             }
  
@@ -28,6 +31,9 @@ module.exports = (app, passport) => {
 
     // Logout routes
     app.get('/logout', authC.logout);
+
+    // Planner routes
+    app.get('/planner', authC.planner)
 
     function isLoggedIn(req, res, next) {
         if (req.isAuthenticated())

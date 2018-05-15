@@ -32,7 +32,7 @@ var env = require('dotenv').load();
 let models = require('./app/models');
 
 // Static directory
-app.use(express.static('./app/public'));
+app.use(express.static(__dirname + '/public'));
 app.set('views', './app/views/')
 app.set('view engine', 'ejs');
 

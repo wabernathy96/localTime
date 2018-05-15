@@ -1,3 +1,5 @@
+// USER MODEL
+
 module.exports = function(sequelize, DataTypes) {
     let User = sequelize.define("user", {
         user_id: {
@@ -20,8 +22,16 @@ module.exports = function(sequelize, DataTypes) {
             },
             notEmpty: true
         },
+        userimg: {
+            type: DataTypes.STRING,
+            vaildate:{
+                isUrl: true
+            },
+            notEmpty: true
+        },
         password: {
             type: DataTypes.STRING,
+
             allowNull: false
         },
         status: {
