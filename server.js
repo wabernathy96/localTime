@@ -44,10 +44,12 @@ models.sequelize.sync().then(() => {
 
 // Static directory
 app.use(express.static('public'));
+app.set('views', './app/views/')
 app.set('view engine', 'ejs');
 
 // Routing
-  require('./app/controllers/html_controller')(app);
+require('./app/routes/page-routes.js')(app);
+require('./app/routes/html-routes.js')(app);
 // require("./routes/html-routes.js")(app);
 // require("./routes/author-api-routes.js")(app);
 // require("./routes/post-api-routes.js")(app);
