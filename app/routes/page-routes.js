@@ -1,7 +1,8 @@
-var authController = require('../controllers/auth_controller');
+var authC = require('../controllers/auth_controller');
  
 module.exports = function(app) {
- 
-    app.get('/signup', authController.signup);
+
+    app.get('/signup', authC.signup);
+    app.get('/login', authC.login);
  
 }
