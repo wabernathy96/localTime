@@ -1,3 +1,5 @@
+// USER MODEL
+
 module.exports = function(sequelize, DataTypes) {
     let User = sequelize.define("user", {
         user_id: {
@@ -22,6 +24,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         password: {
             type: DataTypes.STRING,
+
             allowNull: false
         },
         status: {

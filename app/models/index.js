@@ -1,3 +1,5 @@
+// Default model structure for Sequelize
+
 "use strict";
  
 var fs = require("fs");

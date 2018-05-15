@@ -1,3 +1,5 @@
+// PLANNER MODEL
+
 module.exports = function(sequelize, DataTypes){
   var planner = sequelize.define("planner", {
     date: DataTypes.STRING,

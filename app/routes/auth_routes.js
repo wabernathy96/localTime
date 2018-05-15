@@ -1,5 +1,9 @@
+// ROUTES FOR AUTH USERS
+
+// Require exported methods from auth_controller
 var authC = require('../controllers/auth_controller');
- 
+
+// Export routes to server.js
 module.exports = (app, passport) => {
     
     app.get('/dash', isLoggedIn, authC.dash);
