@@ -1,6 +1,8 @@
 const Sequelize = require('sequelize');
 var express = require("express");
 var bodyParser = require("body-parser");
+const planner = require("./controllers/plannerController")
+const ejs = require("ejs")
 
 // Sets up the Express App
 var app = express();
@@ -17,8 +19,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Static directory
-app.use(express.static("public"));
+app.use(express.static("home"));
+app.set('view engine', 'ejs');
 
+app.get('/', (req, res) => {
+  // render `home.ejs` with the list of posts
+  res.render('home', {})
+})
 // Routes
 // require('./routes/index')(app);
 // require("./routes/html-routes.js")(app);
