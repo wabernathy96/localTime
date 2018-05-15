@@ -22,6 +22,13 @@ module.exports = function(sequelize, DataTypes) {
             },
             notEmpty: true
         },
+        userimg: {
+            type: DataTypes.STRING,
+            vaildate:{
+                isUrl: true
+            },
+            notEmpty: true
+        },
         password: {
             type: DataTypes.STRING,
 
