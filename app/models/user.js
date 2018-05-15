@@ -1,28 +1,33 @@
-const uuidv4 = require('uuid/v4');
-const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-    let user = sequelize.define("user", {
+    let User = sequelize.define("user", {
         user_id: {
             allowNull: false,
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             primaryKey: true,
         },
-        full_name: {
+        first_name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        last_name: {
             type: DataTypes.STRING,
             allowNull: false
         },
         email: {
             type: DataTypes.STRING,
+            validate: {
+                isEmail: true
+            },
             allowNull: false
         },
         password: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        flag: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: false,
+        status: {
+            type: DataTypes.ENUM('active', 'inactive'),
+            defaultValue: 'active',
             allowNull: false
         },
         createdAt: {
@@ -35,10 +40,6 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: sequelize.literal('NOW() ON UPDATE NOW()'),
             allowNull: false
         },
-        
-
-
     })
-
-    return user;
+    return User;
 }
