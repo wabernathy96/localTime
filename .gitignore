@@ -1,6 +1,9 @@
 # Sequelize seeders/migrations
-migrations
+./migrations
+./seeders
 
+# Config
+config/config.json
 
 
 # Logs
