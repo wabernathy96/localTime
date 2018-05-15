@@ -1,26 +1,28 @@
+// CONTROLLERS FOR AUTHORIZED USER VIEWS
+
 var exports = module.exports = {
 };
 
-exports.dash = (req,res) => {
-    res.render('auth_dash');
+exports.dash = (req,ejs) => {
+    ejs.render('pages/auth_dash');
 }
 
-exports.signup = (req,res) => {
-    res.render('pages/signup');
+exports.signup = (req,ejs) => {
+    ejs.render('pages/signup');
 }
 
-exports.login = (req,res) => {
-    res.render('pages/login');
+exports.login = (req,ejs) => {
+    ejs.render('pages/login');
 }
 
-exports.logout = (req,res) => {
+exports.logout = (req,ejs) => {
     req.session.destroy(
         (err) => {
-            res.redirect('/');
+            ejs.redirect('/');
         }
     );
 }
 
-exports.planner = (req,res)  => {
-    res.render('pages/create_planner');
+exports.planner = (req,ejs)  => {
+    ejs.render('pages/create_planner');
 }

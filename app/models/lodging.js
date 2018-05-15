@@ -1,3 +1,5 @@
+// DEFAULT MODEL FOR LODGING
+
 module.exports = function(sequelize, DataTypes){
   var lodging = sequelize.define("lodging", {
     url: DataTypes.STRING,

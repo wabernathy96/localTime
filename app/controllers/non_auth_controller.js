@@ -1,6 +1,8 @@
+// CONTROLLER FOR NON_AUTH USER VIEWS
+
 var exports = module.exports = {
 };
 
 exports.home = (req, res) => {
-    res.render('home');
+    res.render('pages/home');
 }
