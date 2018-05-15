@@ -1,20 +1,15 @@
 const Sequelize = require('sequelize');
 const express = require("express");
+//Templating
 const ejs = require("ejs")
-
-// Sets up the Express App
-let app = express();
-let PORT = process.env.PORT || 9001;
-
-// Syncing our sequelize models and then starting our Express app
-app.listen(PORT, function() {
-  console.log(`App listening on PORT: ${PORT}`)
-});
-
 // Middleware
 const session = require('express-session');
 const passport = require('passport');
 const bodyParser = require("body-parser");
+
+// Sets up the Express App
+let app = express();
+let PORT = process.env.PORT || 9001;
 
 // Sets up the Express app to handle data parsing
 // Body-Parser MiddleWare
@@ -36,22 +31,29 @@ var env = require('dotenv').load();
 // Models
 let models = require('./app/models');
 
-models.sequelize.sync().then(() => {
+// Static directory
+app.use(express.static('./app/public'));
+app.set('views', './app/views/')
+app.set('view engine', 'ejs');
+
+// Routing
+require('./app/routes/auth_routes')(app, passport);
+require('./app/routes/non_auth_routes') (app);
+
+
+// Passport Strategies
+require('./app/config/passport/passport')(passport, models.user);
+
+// Sync Database
+models.sequelize.sync({force:true}).then(() => {
   console.log('Loooks grrrRRREEEAATTT!');
 }).catch(function(err) {
   console.log(`ERROR WITH DB UPDATE: ${err}`)
 });
 
-// Static directory
-app.use(express.static('public'));
-app.set('views', './app/views/')
-app.set('view engine', 'ejs');
-
-// Routing
-require('./app/routes/page-routes.js')(app);
-require('./app/routes/html-routes.js')(app);
-// require("./routes/html-routes.js")(app);
-// require("./routes/author-api-routes.js")(app);
-// require("./routes/post-api-routes.js")(app);
+// Start server
+app.listen(PORT, function() {
+  console.log(`App listening on PORT: ${PORT}`)
+});
 
 

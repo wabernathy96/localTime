@@ -1,25 +1,24 @@
 module.exports = function(sequelize, DataTypes) {
     let User = sequelize.define("user", {
         user_id: {
-            allowNull: false,
-            type: DataTypes.UUID,
-            defaultValue: DataTypes.UUIDV4,
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
             primaryKey: true,
         },
-        first_name: {
+        firstname: {
             type: DataTypes.STRING,
-            allowNull: false
+            notEmpty: true
         },
-        last_name: {
+        lastname: {
             type: DataTypes.STRING,
-            allowNull: false
+            notEmpty: true
         },
         email: {
             type: DataTypes.STRING,
             validate: {
                 isEmail: true
             },
-            allowNull: false
+            notEmpty: true
         },
         password: {
             type: DataTypes.STRING,
@@ -28,17 +27,11 @@ module.exports = function(sequelize, DataTypes) {
         status: {
             type: DataTypes.ENUM('active', 'inactive'),
             defaultValue: 'active',
-            allowNull: false
+            notEmpty: true
         },
         createdAt: {
             type: DataTypes.DATE(),
             defaultValue: sequelize.literal('NOW()'),
-            allowNull: false
-        },
-        updatedAt: {
-            type: DataTypes.DATE(),
-            defaultValue: sequelize.literal('NOW() ON UPDATE NOW()'),
-            allowNull: false
         },
     })
     return User;
