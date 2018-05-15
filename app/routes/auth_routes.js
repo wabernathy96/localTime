@@ -19,7 +19,6 @@ module.exports = (app, passport) => {
     app.post('/login', passport.authenticate          ('local-login', 
             {
                 successRedirect: '/dash',
- 
                 failureRedirect: '/login'
             }
  
@@ -28,6 +27,9 @@ module.exports = (app, passport) => {
 
     // Logout routes
     app.get('/logout', authC.logout);
+
+    // Planner routes
+    app.get('/planner', authC.planner)
 
     function isLoggedIn(req, res, next) {
         if (req.isAuthenticated())
