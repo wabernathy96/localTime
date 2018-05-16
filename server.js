@@ -8,6 +8,7 @@ const session = require('express-session');
 const passport = require('passport');
 const bodyParser = require("body-parser");
 
+
 // Sets up the Express App
 var app = express();
 var PORT = process.env.PORT || 9001;
@@ -33,13 +34,17 @@ var env = require('dotenv').load();
 app.set('views', './app/views/')
 app.set('view engine', 'ejs');
 
-// Routing
-require('./app/routes/auth_routes')(app, passport);
-require('./app/routes/non_auth_routes') (app);
-
-
 // Passport Strategies
-require('./app/config/passport/passport')(passport, models.user);
+require('./app/config/passport')(passport, models.user);
+
+
+// User routes
+let user_routes = 
+require ('./app/routes/user_routes')
+
+app.use('/', user_routes);
+
+
 
 // Sync Database
 models.sequelize.sync({force:true}).then(() => {
