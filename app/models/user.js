@@ -10,9 +10,6 @@ module.exports = function(sequelize, DataTypes) {
         googleID: {
             type: DataTypes.STRING,
         },
-        googleName: {
-            type: DataTypes.STRING,
-        },
         googleToken: {
             type: DataTypes.STRING,
         },

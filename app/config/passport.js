@@ -21,42 +21,47 @@ module.exports = (passport, user) => {
                 let generateHash = (password) => {
                     return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
                 };
-                User.findOne({
-                    where: {
-                        email: email
+                User.findOne(
+                    {
+                        where: {
+                            email: email
+                        }
                     }
-                }).then((user) => {
-                 
-                    if (user){
-                        return done(null, false, 
-                            {
-                                message: 'That email is already taken',
-                            }
-                        );
-                    } else {
-                        let userPassword = generateHash(password);
-                        let data =
-                            {
-                                email: email,
-                                password:
-                                userPassword,
-                                firstname: req.body.firstname,
-                                lastname: req.body.lastname
-                            };
-                 
-                        User.create(data)
-                        .then(
-                            (newUser, created) => {
-                                if (!newUser) {
-                                    return done(null, false);
+                )
+                .then(
+                    (user) => {
+                        if (user){
+                            return done(null, false, 
+                                {
+                                    message: 'That email is already taken',
                                 }
-                                if (newUser) {
-                                    return done(null, newUser);
+                            );
+                        } else {
+                            let userPassword = generateHash(password);
+                            let data =
+                                {
+                                    email: email,
+                                    password:
+                                    userPassword,
+                                    firstname: req.body.firstname,
+                                    lastname: req.body.lastname,
+                                    userimg: req.body.userimg
+                                };
+                    
+                            User.create(data)
+                            .then(
+                                (newUser, created) => {
+                                    if (!newUser) {
+                                        return done(null, false);
+                                    }
+                                    if (newUser) {
+                                        return done(null, newUser);
+                                    }
                                 }
-                            }
-                        );
+                            );
+                        }
                     }
-                });
+                );
             }
         )
     );
@@ -118,14 +123,17 @@ module.exports = (passport, user) => {
                 callbackURL: keys.callbackURL
             },
             (accessToken, refreshToken, profile, done) => {
-                console.log(accessToken);
+                
                 console.log(profile);
+
+                const image = profile.photos[0].value.substring(0, profile.photos[0].value.indexOf('?'));
 
                 let newUser = {
                     googleID: profile.id,
                     email: profile.emails[0].value,
                     firstname: profile.name.givenName,
                     lastname: profile.name.familyName,
+                    userimg: image
                 }
 
                 User.findOne(
