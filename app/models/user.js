@@ -7,6 +7,15 @@ module.exports = function(sequelize, DataTypes) {
             autoIncrement: true,
             primaryKey: true,
         },
+        googleID: {
+            type: DataTypes.STRING,
+        },
+        googleName: {
+            type: DataTypes.STRING,
+        },
+        googleToken: {
+            type: DataTypes.STRING,
+        },
         firstname: {
             type: DataTypes.STRING,
             notEmpty: true

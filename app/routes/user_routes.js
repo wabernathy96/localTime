@@ -7,6 +7,19 @@ const passport = require('passport');
 // Require helper functions
 let auth_help = require('./helpers/auth_help');
 
+// Google Login Routes
+user_routes.get('/auth/google', passport.authenticate(
+    'google', { scope: ['profile', 'email'] }
+)
+);
+
+user_routes.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }),
+    (req, res) => {
+        // Successful authentication, redirect to dashboard.
+        res.redirect('/dash');
+    }
+);
+
 // Signup routes
 user_routes.get('/signup', 
     (req,res) => {

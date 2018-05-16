@@ -132,7 +132,7 @@ module.exports = (passport, user) => {
                             // set all of the relevant information
                             profile.google.id    = user.googleID;
                             profile.google.token = user.token;
-                            profile.google.name  = user.firstname;
+                            profile.google.name  = user.googleName;
                             profile.google.email = user.email; // pull the first email
                             // save the user
                             user.save(function(err) {
@@ -147,35 +147,7 @@ module.exports = (passport, user) => {
         )
     )
 
-    // passport.use(new GoogleStrategy({
-    //     clientID: keys.googleAuth.clientID,
-    //     clientSecret: keys.googleAuth.clientSecret,
-    //     callbackURL: keys.googleAuth.callbackURL
-    //     },
-    //     function(request, accessToken, refreshToken, profile, done) {
-    //       User.findOne({ oauthID: profile.id }, function(err, user) {
-    //         if(err) {
-    //           console.log(err);  // handle errors!
-    //         }
-    //         if (!err && user !== null) {
-    //           done(null, user);
-    //         } else {
-    //           user = new User({
-    //             oauthID: profile.id,
-    //             email: profile.emails[0].value,
-    //           });
-    //           user.save(function(err) {
-    //             if(err) {
-    //               console.log(err);  // handle errors!
-    //             } else {
-    //               console.log("saving user ...");
-    //               done(null, user);
-    //             }
-    //           });
-    //         }
-    //       });
-    //     }
-    //   ));
+    
     //serialize
     passport.serializeUser(
         (user, done) => {

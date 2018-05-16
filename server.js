@@ -43,10 +43,10 @@ require('./app/config/passport')(passport, models.user);
 
 
 // User routes
-  let user_routes = 
-  require ('./app/routes/user_routes')
+let user_routes = 
+require ('./app/routes/user_routes')
 
-  app.use('/', user_routes);
+app.use('/', user_routes);
 
 
 
