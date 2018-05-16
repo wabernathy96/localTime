@@ -1,60 +1,29 @@
 <!-- views/home.ejs -->
 
-<!DOCTYPE html>
-<html>
 
-<head>
-    <meta charset="utf-8">
-    <title>Node.js Blog</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <style>
-        body {
-            padding-top: 20px;
-            padding-bottom: 20px;
-        }
+<%- contentFor("hero") %>
 
-        .jumbotron {
-          margin-top: 10px;
-        }
-    </style>
-</head>
 
-<body>
-    <!-- <h1> SANITY CHECK </h1> -->
-    <div class="container">
-        <div class="jumbotron">
-            <h1>All about Node</h1>
-            <p class="lead">Check out our articles below!</p>
+<div class="slider">
+        <div class="load">
         </div>
+        <div class="content">
+            <div class="principal">
+                <h1 class="animated rollIn">Local Time</h1>
+                <p>Lorem ipsum lorem ipsum Lorem ipsum</p>
 
-        <br><br><br>
-
-        <div class="row">
-            <div class="col-lg-12">
-                <form action="/signup" method="GET">
-                    <button type="submit">
-                        Signup
-                    </button>
-                </form>
-                
-                <form action="/login" method="GET">
-                    <button type="submit">
-                        Login
-                    </button>
-                </form>
-
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="list-group">
-                  <!-- loop over blog posts and render them -->
-                  LIST_OF_POSTS
+                <div class="input-group md-form form-sm form-2 pl-0">
+                    <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" aria-label="Search" id="fontcolor">
+                    <div class="input-group-append">
+                        <span class="input-group-text amber lighten-3" id="basic-text1">
+                            <i class="fa fa-search text-grey"  aria-hidden="true"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="text-center">
+                        <a href="" class="btn btn-warning btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm" id="loginModal"> LogIn/Register</a>
                 </div>
             </div>
         </div>
     </div>
-</body>
-
-</html>
+  
