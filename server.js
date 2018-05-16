@@ -13,9 +13,11 @@ const bodyParser = require("body-parser");
 let app = express();
 let PORT = process.env.PORT || 9001;
 // Static directory
-app.use(express.static(path.join(__dirname , 'app/public')));
+
+// app.use(express.static("./app/public"));
+app.use(express.static(path.join(__dirname , '/app/public')));
 app.set('views', __dirname + '/app/views/')
-console.log("39", path.join(__dirname , 'app/public'));
+// console.log("39", path.join(__dirname , 'app/public'));
 // Sets up the Express app to handle data parsing
 // Body-Parser MiddleWare
 // parse application/x-www-form-urlencoded

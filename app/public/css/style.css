@@ -1,4 +1,99 @@
 /* Your custom styles */
-body {
-    background-color: #d89999;
+/* body {
+    background-color: #8f2844;
+} */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+/* body {
+    background-color: #d67373;
+} */
+
+.load {
+    animation: slide 2s;
+}
+
+.slider {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    animation: slide 40s infinite;
+}
+
+.content {
+    color: #fff;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.principal {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    letter-spacing: 5px;
+    text-align: center;
+}
+
+.principal h1{
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+
+.principal p {
+    font-size: 20px;
+}
+
+@keyframes slide {
+    0% {
+        background-image: url("../img/travel1.jpg");
+    }
+    20% {
+        background-image: url("../img/travel1.jpg");
+    }
+
+    20.01% {
+        background-image: url("../img/travel2.jpg");
+    }
+    40% {
+        background-image: url("../img/travel2.jpg");
+    }
+    40.01% {
+        background-image: url("../img/travel3.jpg");
+    }
+    60% {
+        background-image: url("../img/travel3.jpg");
+    }
+    60.01% {
+        background-image: url("../img/travel4.jpg");
+    }
+    80% {
+        background-image: url("../img/travel4.jpg");
+    }
+    80.01% {
+        background-image: url("../img/travel5.jpg");
+    }
+    100% {
+        background-image: url("../img/travel5.jpg");
+    }
+
+}
+
+.input-group.md-form.form-sm.form-2 input.amber-border  {
+    border: 1px solid #ffca28;
+}
+
+#fontcolor {
+    color: #fdfdfd;
+}
+
+#loginModal {
+    padding: 10px;
+    right: 22px;
+    position: relative;
 }

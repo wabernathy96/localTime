@@ -4,26 +4,191 @@
 <%- contentFor("hero") %>
 
 
-<div class="slider">
+    <div class="slider">
         <div class="load">
         </div>
         <div class="content">
             <div class="principal">
                 <h1 class="animated rollIn">Local Time</h1>
-                <p>Lorem ipsum lorem ipsum Lorem ipsum</p>
+                <p>LIVE.LIFE.LOCALLY.</p>
 
                 <div class="input-group md-form form-sm form-2 pl-0">
                     <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" aria-label="Search" id="fontcolor">
                     <div class="input-group-append">
                         <span class="input-group-text amber lighten-3" id="basic-text1">
-                            <i class="fa fa-search text-grey"  aria-hidden="true"></i>
+                            <i class="fa fa-search text-grey" aria-hidden="true"></i>
                         </span>
                     </div>
                 </div>
                 <div class="text-center">
-                        <a href="" class="btn btn-warning btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm" id="loginModal"> LogIn/Register</a>
+                    <a href="" class="btn btn-warning btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm" id="loginModal"> LogIn/Register</a>
                 </div>
             </div>
         </div>
     </div>
-  
+
+    <!--Modal: Login / Register Form-->
+    <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog cascading-modal" role="document">
+            <!--Content-->
+            <div class="modal-content">
+
+                <!--Modal cascading tabs-->
+                <div class="modal-c-tabs">
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs tabs-2 orange lighten-3" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab">
+                                <i class="fa fa-user mr-1"></i> Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#panel8" role="tab">
+                                <i class="fa fa-user-plus mr-1"></i> Register</a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab panels -->
+                    <div class="tab-content">
+                        <!--Panel 7-->
+                        <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+
+                            <!--Body-->
+                            <div class="modal-body mb-1">
+                                <div class="md-form form-sm mb-5">
+                                    <i class="fa fa-envelope prefix"></i>
+                                    <input type="email" id="modalLRInput10" class="form-control form-control-sm validate">
+                                    <label data-error="wrong" data-success="right" for="modalLRInput10">Your email</label>
+                                </div>
+
+                                <div class="md-form form-sm mb-4">
+                                    <i class="fa fa-lock prefix"></i>
+                                    <input type="password" id="modalLRInput11" class="form-control form-control-sm validate">
+                                    <label data-error="wrong" data-success="right" for="modalLRInput11">Your password</label>
+                                </div>
+                                <div class="text-center mt-2">
+                                    <button class="btn btn-warning">Log in
+                                        <i class="fa fa-sign-in ml-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!--Footer-->
+                            <div class="modal-footer">
+                                <div class="options text-center text-md-right mt-1">
+                                    <p>Not a member?
+                                        <a href="#" class="orange-text">Sign Up</a>
+                                    </p>
+                                    <p>Forgot
+                                        <a href="#" class="orange-text">Password?</a>
+                                    </p>
+                                </div>
+                                <button type="button" class="btn btn-outline-warning waves-effect ml-auto" data-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+                        <!--/.Panel 7-->
+
+                        <!--Panel 8-->
+                        <div class="tab-pane fade" id="panel8" role="tabpanel">
+
+                            <!--Body-->
+                            <div class="modal-body">
+                                <div class="md-form form-sm mb-5">
+                                    <i class="fa fa-envelope prefix"></i>
+                                    <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                                    <label data-error="wrong" data-success="right" for="modalLRInput12">Your email</label>
+                                </div>
+
+                                <div class="md-form form-sm mb-5">
+                                    <i class="fa fa-lock prefix"></i>
+                                    <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
+                                    <label data-error="wrong" data-success="right" for="modalLRInput13">Your password</label>
+                                </div>
+
+                                <div class="md-form form-sm mb-4">
+                                    <i class="fa fa-lock prefix"></i>
+                                    <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
+                                    <label data-error="wrong" data-success="right" for="modalLRInput14">Repeat password</label>
+                                </div>
+
+                                <div class="text-center form-sm mt-2">
+                                    <button class="btn btn-info">Sign up
+                                        <i class="fa fa-sign-in ml-1"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+                            <!--Footer-->
+                            <div class="modal-footer">
+                                <div class="options text-right">
+                                    <p class="pt-1">Already have an account?
+                                        <a href="#" class="blue-text">Log In</a>
+                                    </p>
+                                </div>
+                                <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                        <!--/.Panel 8-->
+                    </div>
+
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!--Modal: Login / Register Form-->
+
+
+    <!-- Section: Features v.1 -->
+    <section class="text-center my-5">
+
+        <!-- Section heading -->
+        <h2 class="h1-responsive font-weight-bold my-5">EXPERIENCE YOUR BEST LOCAL LIFE</h2>
+        <!-- Section description -->
+        <p class="lead grey-text w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua. Ut enim ad minim veniam.</p>
+
+        <!-- Grid row -->
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-4">
+
+                <i class="fa fa-area-chart fa-3x red-text"></i>
+                <h5 class="font-weight-bold my-4">Analytics</h5>
+                <p class="grey-text mb-md-0 mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores aperiam minima assumenda
+                    deleniti hic.
+                </p>
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-4">
+
+                <i class="fa fa-book fa-3x cyan-text"></i>
+                <h5 class="font-weight-bold my-4">Tutorials</h5>
+                <p class="grey-text mb-md-0 mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores aperiam minima assumenda
+                    deleniti hic.
+                </p>
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-4">
+
+                <i class="fa fa-comments-o fa-3x orange-text"></i>
+                <h5 class="font-weight-bold my-4">Support</h5>
+                <p class="grey-text mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores aperiam minima assumenda
+                    deleniti hic.
+                </p>
+
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+    </section>
+    <!-- Section: Features v.1 -->
