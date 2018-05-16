@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const express = require("express");
+const path = require("path")
 //Templating
 const ejs = require("ejs")
 // Middleware
@@ -8,16 +9,17 @@ const passport = require('passport');
 const bodyParser = require("body-parser");
 
 // Sets up the Express App
-let app = express();
-let PORT = process.env.PORT || 9001;
+var app = express();
+var PORT = process.env.PORT || 9001;
 
+var models = require('./app/models');
 // Sets up the Express app to handle data parsing
 // Body-Parser MiddleWare
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
-// parse application/json
 app.use(bodyParser.json());
 
+app.use(express.static(path.join(__dirname, 'public')));
 // Passport Middleware
 // Session secret
 app.use(session({ secret: 'djcat',resave: true, saveUninitialized:true})); 
@@ -28,11 +30,6 @@ app.use(passport.session());
 // Require env
 var env = require('dotenv').load();
 
-// Models
-let models = require('./app/models');
-
-// Static directory
-app.use(express.static(__dirname + '/public'));
 app.set('views', './app/views/')
 app.set('view engine', 'ejs');
 

@@ -26,3 +26,8 @@ exports.logout = (req,res) => {
 exports.planner = (req,res)  => {
     res.render('pages/create_planner');
 }
+
+
+exports.test = (req, res) => {
+    res.render("pages/home");
+}
