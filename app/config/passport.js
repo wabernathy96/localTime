@@ -1,5 +1,5 @@
 var bCrypt = require('bcrypt-nodejs');
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+var GoogleStrategy = require('passport-google-oauth20');
 
 var User = require('../models/user')
 var keys = require('./keys/key');
@@ -60,6 +60,7 @@ module.exports = (passport, user) => {
             }
         )
     );
+   
     // Use passport for local login
     passport.use('local-login', 
         new LocalStrategy(
@@ -107,75 +108,50 @@ module.exports = (passport, user) => {
             }
         )
     );
-    passport.use(new GoogleStrategy(
+    
+    // Use passport for Google login
+    passport.use(
+        new GoogleStrategy(
             {
-            clientID : keys.clientKey.clientID,
-            clientSecret : keys.clientKey.clientSecret,
-            callbackURL : keys.clientKey.callbackURL,
+                clientID: keys.clientID,
+                clientSecret: keys.clientSecret,
+                callbackURL: keys.callbackURL
             },
-            function(token, refreshToken, profile, done) {
+            (accessToken, refreshToken, profile, done) => {
+                console.log(accessToken);
+                console.log(profile);
 
-                // make the code asynchronous
-                // User.findOne won't fire until we have all our data back from Google
-                process.nextTick(function() {
-        
-                    // try to find the user based on their google id
-                    User.findOne({ 'google.id' : profile.id }, function(err, user) {
-                        if (err)
-                            return done(err);
-                        if (user) {
-                            // if a user is found, log them in
-                            return done(null, user);
-                        } else {
-                            // if the user isnt in our database, create a new user
-                            var user          = new User();
-                            // set all of the relevant information
-                            profile.google.id    = user.googleID;
-                            profile.google.token = user.token;
-                            profile.google.name  = user.firstname;
-                            profile.google.email = user.email; // pull the first email
-                            // save the user
-                            user.save(function(err) {
-                                if (err)
-                                    throw err;
-                                return done(null, user);
-                            });
+                let newUser = {
+                    googleID: profile.id,
+                    email: profile.emails[0].value,
+                    firstname: profile.name.givenName,
+                    lastname: profile.name.familyName,
+                }
+
+                User.findOne(
+                    {
+                        googleID: profile.id
+                    }
+                )
+                .then(
+                    (user) => {
+                        if(user){
+                            done(null, user);
+                        }else{
+                            new User(newUser)
+                            .save()
+                            .then(
+                                (user) => 
+                                done(null,user)
+                            );
                         }
-                    });
-                });   
+                    }
+                );
             }
         )
-    )
+    );
 
-    // passport.use(new GoogleStrategy({
-    //     clientID: keys.googleAuth.clientID,
-    //     clientSecret: keys.googleAuth.clientSecret,
-    //     callbackURL: keys.googleAuth.callbackURL
-    //     },
-    //     function(request, accessToken, refreshToken, profile, done) {
-    //       User.findOne({ oauthID: profile.id }, function(err, user) {
-    //         if(err) {
-    //           console.log(err);  // handle errors!
-    //         }
-    //         if (!err && user !== null) {
-    //           done(null, user);
-    //         } else {
-    //           user = new User({
-    //             oauthID: profile.id,
-    //             email: profile.emails[0].value,
-    //           });
-    //           user.save(function(err) {
-    //             if(err) {
-    //               console.log(err);  // handle errors!
-    //             } else {
-    //               console.log("saving user ...");
-    //               done(null, user);
-    //             }
-    //           });
-    //         }
-    //       });
-    //     }
-    //   ));
+    
     //serialize
     passport.serializeUser(
         (user, done) => {
@@ -189,13 +165,11 @@ module.exports = (passport, user) => {
             User.findById(user_id)
             .then(
                 (user) => {
-    
                     if (user) {
                         done(null, user.get());
                     } else {
                         done(user.errors, null);
                     }
-    
                 }
             );
         }

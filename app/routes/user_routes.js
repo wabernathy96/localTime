@@ -1,4 +1,4 @@
-// ROUTES FOR AUTH USERS
+// ROUTES FOR USERS
 
 // Require necessary dependencies
 const express = require('express');
@@ -36,6 +36,20 @@ user_routes.post('/login', passport.authenticate ('local-login',
     )
 );
 
+// Google Login Routes
+user_routes.get('/auth/google', passport.authenticate(
+    'google', { scope: ['profile', 'email'] }
+)
+);
+
+user_routes.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }),
+    (req, res) => {
+        // Successful authentication, redirect to dashboard.
+        res.redirect('/dash');
+    }
+);
+
+
 // Dash route
 user_routes.get('/dash', auth_help.loggedIn, 
     (req,res) => {
@@ -46,11 +60,8 @@ user_routes.get('/dash', auth_help.loggedIn,
 // Logout routes
 user_routes.get('/logout', 
     (req,res) => {
-        req.session.destroy(
-            (err) => {
-                res.redirect('/');
-            }
-        );
+        req.logOut();
+        res.redirect('/');  
     }
 );
 
