@@ -1,7 +1,15 @@
 <!-- views/home.ejs -->
 
 
-<%- contentFor("hero") %>
+<head>
+    <% include ../partials/head %>
+    <style>
+        body {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        </style>
 
 
 <div class="slider">
@@ -26,4 +34,8 @@
             </div>
         </div>
     </div>
-  
+
+    <% include ../partials/bsscripts %>
+</body>
+
+</html>
