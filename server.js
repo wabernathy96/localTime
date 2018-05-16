@@ -13,17 +13,15 @@ const bodyParser = require("body-parser");
 var app = express();
 var PORT = process.env.PORT || 9001;
 
-var models = require('./app/models');
 // Sets up the Express app to handle data parsing
 // Body-Parser MiddleWare
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname, 'public')));
 // Passport Middleware
 // Session secret
-app.use(session({ secret: 'djcat',resave: true, saveUninitialized:true})); 
+app.use(session({ secret: 'djcat', resave: true, saveUninitialized:true})); 
 app.use(passport.initialize());
 // Persistent login sessions
 app.use(passport.session()); 
@@ -31,19 +29,26 @@ app.use(passport.session());
 // Require env
 var env = require('dotenv').load();
 
+// Models
+var models = require('./app/models');
+
+// Serve public file to ejs
+app.use(express.static(__dirname + '/app/public'));
+
+// Set ejs views
 app.set('views', './app/views/')
 app.set('view engine', 'ejs');
+
 
 // Passport Strategies
 require('./app/config/passport')(passport, models.user);
 
-
+// Routing
 // User routes
 let user_routes = 
 require ('./app/routes/user_routes')
 
 app.use('/', user_routes);
-
 
 
 // Sync Database
