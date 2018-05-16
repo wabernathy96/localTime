@@ -7,6 +7,12 @@ module.exports = function(sequelize, DataTypes) {
             autoIncrement: true,
             primaryKey: true,
         },
+        googleID: {
+            type: DataTypes.STRING,
+        },
+        googleToken: {
+            type: DataTypes.STRING,
+        },
         firstname: {
             type: DataTypes.STRING,
             notEmpty: true
@@ -22,10 +28,15 @@ module.exports = function(sequelize, DataTypes) {
             },
             notEmpty: true
         },
+        userimg: {
+            type: DataTypes.STRING,
+            vaildate:{
+                isUrl: true
+            },
+            notEmpty: true
+        },
         password: {
             type: DataTypes.STRING,
-
-            allowNull: false
         },
         status: {
             type: DataTypes.ENUM('active', 'inactive'),
@@ -37,5 +48,13 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: sequelize.literal('NOW()'),
         },
     })
+
+    User.associate = function(models) {
+        // Associating Author with Posts
+        // When an Author is deleted, also delete any associated Posts
+        User.hasMany(models.planner, {
+          onDelete: "cascade"
+        });
+      };
     return User;
 }

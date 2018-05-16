@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const express = require("express");
-const path = require("path");
+const path = require("path")
 //Templating
 const ejs = require("ejs");
 const expressLayouts = require("express-ejs-layouts");
@@ -9,25 +9,20 @@ const session = require('express-session');
 const passport = require('passport');
 const bodyParser = require("body-parser");
 
-// Sets up the Express App
-let app = express();
-let PORT = process.env.PORT || 9001;
-// Static directory
 
-// app.use(express.static("./app/public"));
-app.use(express.static(path.join(__dirname , '/app/public')));
-app.set('views', __dirname + '/app/views/')
-// console.log("39", path.join(__dirname , 'app/public'));
+// Sets up the Express App
+var app = express();
+var PORT = process.env.PORT || 9001;
+
 // Sets up the Express app to handle data parsing
 // Body-Parser MiddleWare
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
-// parse application/json
 app.use(bodyParser.json());
 
 // Passport Middleware
 // Session secret
-app.use(session({ secret: 'djcat',resave: true, saveUninitialized:true})); 
+app.use(session({ secret: 'djcat', resave: true, saveUninitialized:true})); 
 app.use(passport.initialize());
 // Persistent login sessions
 app.use(passport.session()); 
@@ -36,22 +31,26 @@ app.use(passport.session());
 var env = require('dotenv').load();
 
 // Models
-let models = require('./app/models');
+var models = require('./app/models');
 
+// Serve public file to ejs
+app.use(express.static(__dirname + '/app/public'));
 
-
-//using ejs and express layouts
-// app.set('view engine', 'ejs');
-app.set("view engine", "ejs");
-app.use(expressLayouts);
-
-// Routing
-require('./app/routes/auth_routes')(app, passport);
-require('./app/routes/non_auth_routes') (app);
+// Set ejs views
+app.set('views', './app/views/')
+app.set('view engine', 'ejs');
 
 
 // Passport Strategies
-require('./app/config/passport/passport')(passport, models.user);
+require('./app/config/passport')(passport, models.user);
+
+// Routing
+// User routes
+let user_routes = 
+require ('./app/routes/user_routes')
+
+app.use('/', user_routes);
+
 
 // Sync Database
 models.sequelize.sync({force:true}).then(() => {

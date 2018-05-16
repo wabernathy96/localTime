@@ -1,7 +1,15 @@
 <!-- views/home.ejs -->
 
 
-<%- contentFor("hero") %>
+<head>
+    <% include ../partials/head %>
+    <style>
+        body {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        </style>
 
 
     <div class="slider">
@@ -27,6 +35,7 @@
         </div>
     </div>
 
+<<<<<<< HEAD
     <!--Modal: Login / Register Form-->
     <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog cascading-modal" role="document">
@@ -192,3 +201,9 @@
 
     </section>
     <!-- Section: Features v.1 -->
+=======
+    <% include ../partials/bsscripts %>
+</body>
+
+</html>
+>>>>>>> 7d30e03380ab2e26922924d1ede68177e1a2baee

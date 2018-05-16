@@ -1,0 +1,9 @@
+{
+    "clientID":"92246101919-69e9rsmhi5kmhc2l4ajqurjfleir0kkv.apps.googleusercontent.com",
+
+    "clientSecret": "Zb2TL96umGM2fmugLKxqPSFB",
+
+    "callbackURL": "/auth/google/callback"
+}
+
+
