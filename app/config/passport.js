@@ -1,7 +1,7 @@
 var bCrypt = require('bcrypt-nodejs');
 var GoogleStrategy = require('passport-google-oauth20');
 
-var User = require('../models/user')
+var User = require('../models/user');
 var keys = require('./keys/key');
 
 
