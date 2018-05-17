@@ -68,6 +68,7 @@ user_routes.get('/logout',
 // Planner routes
 user_routes.get('/planner', 
     (req,res) => {
+        console.log("heeeeeeee")
         res.render('pages/create_planner');
     }
 );
