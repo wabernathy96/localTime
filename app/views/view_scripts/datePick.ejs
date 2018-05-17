@@ -1,0 +1,62 @@
+<script>
+    let counter = 1;
+
+    $(() => {
+        $(`#datetimepicker-start${counter}`).datetimepicker();
+        $(`#datetimepicker-end${counter}`).datetimepicker();
+    });
+
+    $('#add-date-btn').click(
+        () => {
+            counter++;
+            $('#date-container').append(`
+                <div class="row">
+                    <div class="col-sm-6">
+                        Start Date ${counter}:
+                        <div class="form-group">
+                            <div class="input-group date" id="datetimepicker-start${counter}" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker-start${counter}"/>
+                                <div class="input-group-append" data-target="#datetimepicker-start${counter}" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        End Date ${counter}:
+                        <div class="form-group">
+                            <div class="input-group date" id="datetimepicker-end${counter}" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker-end${counter}"/>
+                                <div class="input-group-append" data-target="#datetimepicker-end${counter}" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `);
+            $(`#datetimepicker-start${counter}`).datetimepicker();
+            $(`#datetimepicker-end${counter}`).datetimepicker();
+        }
+    );
+
+    $('#finish-btn').click(
+        () => {
+            let dates = $('.datetimepicker-input');
+            console.log('dates', dates);
+            let datePairs = [];
+            for (let i = 0; i < dates.length; i+=2) {
+                let pair = {
+                    start: dates[i].value,
+                    end: dates[i+1].value
+                };
+                datePairs.push(pair);
+            }
+            console.log('datePairs', datePairs);
+        }
+    );
+</script>  
+
+       
+        
+        

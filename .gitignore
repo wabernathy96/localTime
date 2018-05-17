@@ -1,8 +1,8 @@
-
+api_test
 
 # Config
-config/config.json
-config/keys
+app/config/config.json
+app/config/keys
 
 
 # Logs

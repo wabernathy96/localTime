@@ -45,7 +45,7 @@ require('./app/config/passport')(passport, models.user);
 
 // Routing
 // User routes
-let user_routes = 
+const user_routes = 
 require ('./app/routes/user_routes')
 
 app.use('/', user_routes);
