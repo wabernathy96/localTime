@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize');
 const express = require("express");
-const path = require("path")
+const path = require("path");
 //Templating
-const ejs = require("ejs")
+const ejs = require("ejs");
 // Middleware
 const session = require('express-session');
 const passport = require('passport');
@@ -36,7 +36,7 @@ var models = require('./app/models');
 app.use(express.static(__dirname + '/app/public'));
 
 // Set ejs views
-app.set('views', './app/views/')
+app.set('views', './app/views/');
 app.set('view engine', 'ejs');
 
 
@@ -45,8 +45,7 @@ require('./app/config/passport')(passport, models.user);
 
 // Routing
 // User routes
-let user_routes = 
-require ('./app/routes/user_routes')
+let user_routes = require ('./app/routes/user_routes');
 
 app.use('/', user_routes);
 
@@ -55,12 +54,10 @@ app.use('/', user_routes);
 models.sequelize.sync({force:true}).then(() => {
   console.log('Loooks grrrRRREEEAATTT!');
 }).catch(function(err) {
-  console.log(`ERROR WITH DB UPDATE: ${err}`)
+  console.log(`ERROR WITH DB UPDATE: ${err}`);
 });
 
 // Start server
 app.listen(PORT, function() {
-  console.log(`App listening on PORT: ${PORT}`)
+  console.log(`App listening on PORT: ${PORT}`);
 });
-
-
