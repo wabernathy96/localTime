@@ -13,32 +13,28 @@ module.exports = function (sequelize, DataTypes) {
     flag: DataTypes.BOOLEAN
   })
 
-  planner.associate = function (models) {
-    // We're saying that a planner should belong to a user
-    // A planner can't be created without an Author due to the foreign key constraint
+  
+  planner.associate = function(models) {
+    // Associating Author with Posts
+    // When an Author is deleted, also delete any associated Posts
     planner.belongsTo(models.user, {
       foreignKey: {
         allowNull: false
       }
     });
+
+    planner.hasMany(models.group, {
+      onDelete: "cascade"
+    });
     
-  };
+    planner.hasMany(models.lodging, {
+      onDelete: "cascade"
+    });
 
-  planner.associate = function(models) {
-    // Associating Author with Posts
-    // When an Author is deleted, also delete any associated Posts
-    planner.hasMany(models.group, {
+    planner.hasMany(models.event, {
       onDelete: "cascade"
     });
   };
-
-  planner.associate = function(models) {
-    // Associating Author with Posts
-    // When an Author is deleted, also delete any associated Posts
-    planner.hasMany(models.group, {
-      onDelete: "cascade"
-    });
-  };
-
+  
   return planner;
 }

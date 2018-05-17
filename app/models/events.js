@@ -32,15 +32,13 @@ module.exports = function(sequelize, DataTypes) {
       },
   })
 
-//   event.associate = function (models) {
-//     // We're saying that a group should belong to a planner
-//     // A group can't be created without an planner due to the foreign key constraint
-//     event.belongsTo(models.planner, {
-//       foreignKey: {
-//         allowNull: false
-//       }
-//     });
-//   };
+  event.associate = function (models) {
+    event.belongsTo(models.planner, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
 
   
   return event;

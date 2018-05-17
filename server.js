@@ -16,8 +16,8 @@ var PORT = process.env.PORT || 9001;
 // Sets up the Express app to handle data parsing
 // Body-Parser MiddleWare
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Passport Middleware
 // Session secret
@@ -45,14 +45,20 @@ require('./app/config/passport')(passport, models.user);
 
 // Routing
 // User routes
+<<<<<<< HEAD
+let api_routes = require("./app/routes/api_routes");
+let user_routes = require ('./app/routes/user_routes')
+app.use('/', user_routes, api_routes);
+=======
 let user_routes = require ('./app/routes/user_routes');
 
 app.use('/', user_routes);
+>>>>>>> 225eb92b0aead22f59045cd2b9d58a327ba70782
 
 
 // Sync Database
-models.sequelize.sync({force:true}).then(() => {
-  console.log('Loooks grrrRRREEEAATTT!');
+models.sequelize.sync().then(() => {
+  console.log('Server is synced and Live');
 }).catch(function(err) {
   console.log(`ERROR WITH DB UPDATE: ${err}`);
 });
