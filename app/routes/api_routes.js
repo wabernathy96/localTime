@@ -4,17 +4,20 @@ const passport = require('passport');
 const db = require("../models")
 
 // ---------------user data---------------
-router.get('/api/get_user', function (req, res) {
-    console.log(Object.keys(db));
-    console.log(req.body);
-    db.user.findAll({})
-        .then(function (dbUser) {
-            console.log(dbUser)
-            console.log(req.params)
-            res.render('pages/create_planner', { info: dbUser[0].dataValues.firstname });
-        });
-});
+// router.get('/api/get_user', function (req, res) {
+//     console.log(Object.keys(db));
+//     console.log(req.body);
+//     db.user.findAll({})
+//         .then(function (dbUser) {
+//             console.log(dbUser)
+//             console.log(req.params)
+//             res.render('pages/create_planner', { info: dbUser[0].dataValues.firstname });
+//         });
+// });
 
+router.get("api/home", function(req,res){
+    res.render("pages/home");
+})
 
 
 //---------------planner data---------------

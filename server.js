@@ -45,15 +45,9 @@ require('./app/config/passport')(passport, models.user);
 
 // Routing
 // User routes
-<<<<<<< HEAD
-let api_routes = require("./app/routes/api_routes");
-let user_routes = require ('./app/routes/user_routes')
-app.use('/', user_routes, api_routes);
-=======
 let user_routes = require ('./app/routes/user_routes');
 
 app.use('/', user_routes);
->>>>>>> 225eb92b0aead22f59045cd2b9d58a327ba70782
 
 
 // Sync Database
