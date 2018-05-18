@@ -2,18 +2,20 @@
 
 // Require necessary dependencies
 const express = require('express');
-const user_routes = express.Router();
+const routes = express.Router();
 const passport = require('passport');
+// Require tables from DB testBase
+const db = require('../models');
 // Require helper functions
 let auth_help = require('./helpers/auth_help');
 
 // Signup routes
-user_routes.get('/signup', 
+routes.get('/signup', 
     (req,res) => {
         res.render('pages/signup');
     }
 );
-user_routes.post('/signup',passport.authenticate('local-signup', 
+routes.post('/signup',passport.authenticate('local-signup', 
         {
             successRedirect: '/dash',
             failureRedirect: '/signup'
@@ -22,12 +24,14 @@ user_routes.post('/signup',passport.authenticate('local-signup',
 );
 
 // Login routes
-user_routes.get('/login', 
+routes.get('/login', 
     (req,res) => {
+        console.log(`WORKING: ${JSON.stringify(req.body)}`);
         res.render('pages/login');
+        
     }
 );
-user_routes.post('/login', passport.authenticate ('local-login', 
+routes.post('/login', passport.authenticate ('local-login', 
         {
             successRedirect: '/dash',
             failureRedirect: '/login'
@@ -37,28 +41,27 @@ user_routes.post('/login', passport.authenticate ('local-login',
 );
 
 // Google Login Routes
-user_routes.get('/auth/google', passport.authenticate(
+routes.get('/auth/google', passport.authenticate(
     'google', { scope: ['profile', 'email'] }
 )
 );
 
-user_routes.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }),
+routes.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }),
     (req, res) => {
         // Successful authentication, redirect to dashboard.
         res.redirect('/dash');
     }
 );
 
-
 // Dash route
-user_routes.get('/dash', auth_help.loggedIn, 
+routes.get('/dash', auth_help.loggedIn, 
     (req,res) => {
         res.render('pages/auth_dash');
     }
 );
 
 // Logout routes
-user_routes.get('/logout', 
+routes.get('/logout', 
     (req,res) => {
         req.logOut();
         res.redirect('/');  
@@ -66,7 +69,7 @@ user_routes.get('/logout',
 );
 
 // Planner routes
-user_routes.get('/planner', 
+routes.get('/planner', 
     (req,res) => {
         console.log("heeeeeeee")
         res.render('pages/create_planner');
@@ -74,14 +77,27 @@ user_routes.get('/planner',
 );
 
 // Home route
-user_routes.get('/',  
+routes.get('/',  
     (req,res) => {
         res.render('pages/home')
     }
 )
 
+routes.get('/api/get_user',
+    (req,res) => {
+        db.user.findAll({})
+        .then(
+            (user) => {
+                res.json(user);
+            }
+        )
+    }
+)
+
+
+
 // Export routes to server.js
-module.exports = user_routes;
+module.exports = routes;
 
 
 
