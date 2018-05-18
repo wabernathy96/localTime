@@ -9,16 +9,13 @@ const db = require('../models');
 // Require helper functions
 let auth_help = require('./helpers/auth_help');
 
+let userC = require('../controllers/user_c');
+
 // Signup routes
-routes.get('/signup', 
-    (req,res) => {
-        res.render('pages/signup');
-    }
-);
 routes.post('/signup',passport.authenticate('local-signup', 
         {
             successRedirect: '/dash',
-            failureRedirect: '/signup'
+            failureRedirect: '/'
         }
     )
 );
@@ -27,9 +24,8 @@ routes.post('/signup',passport.authenticate('local-signup',
 routes.post('/login', passport.authenticate ('local-login', 
         {
             successRedirect: '/dash',
-            failureRedirect: '/login'
+            failureRedirect: '/'
         }
-
     )
 );
 
@@ -91,14 +87,9 @@ routes.get('/plan',
 
 
 
-routes.get('/api/get_user',
+routes.get('/api/all_users',
     (req,res) => {
-        db.user.findAll({})
-        .then(
-            (user) => {
-                res.json(user);
-            }
-        )
+       userC.getAll(req,res);
     }
 )
 

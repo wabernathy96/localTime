@@ -28,10 +28,8 @@
     <div class="modal-dialog cascading-modal" role="document">
         <!--Content-->
         <div class="modal-content">
-
             <!--Modal cascading tabs-->
             <div class="modal-c-tabs">
-
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs tabs-2 orange lighten-3" role="tablist">
                     <li class="nav-item">
@@ -41,7 +39,6 @@
                         <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fa fa-user-plus mr-1"></i> Register</a>
                     </li>
                 </ul>
-
                 <!-- Tab panels -->
                 <div class="tab-content">
                     <!--Panel 7-->
@@ -57,7 +54,7 @@
 
                             <div class="md-form form-sm mb-4">
                                 <i class="fa fa-lock prefix"></i>
-                                <input type="password" id="password" class="form-control form-control-sm validate">
+                                <input type="password" id="password" name="password" class="form-control form-control-sm validate">
                                 <label data-error="wrong" data-success="right" for="password">Your password</label>
                             </div>
                             <div class="text-center mt-2">
@@ -74,49 +71,63 @@
                             </div>
                             <button type="button" class="btn btn-outline-warning waves-effect ml-auto" data-dismiss="modal">Close</button>
                         </div>
-
                     </div>
                     <!--/.Panel 7-->
+                    <!-- <form id="signup" name="signup" method="post" action="/signup">
+                        <label for="firstname">First_Name</label>
+                        <input name="firstname" type="text" />
+                        <label for="lastname">Last_Name</label>
+                        <input name="lastname" type="text" />
+                        <label for="email">Email Address</label>
+                        <input class="text" name="email" type="email" />
+                        <label for="userimg">User_Image_URL</label>
+                        <input name="userimg" type="text" />
+                        <label for="password">Password</label>
+                        <input name="password" type="password" />
+                        <input class="btn" type="submit" value="Sign Up" />
+                    </form> -->
 
                     <!--Panel 8-->
                     <div class="tab-pane fade" id="panel8" role="tabpanel">
-
                         <!--Body-->
-                        <div class="modal-body">
+                        <form action="/signup" id="signup" name="signup" method="post" >
+                            <div class="modal-body">
                                 <div class="md-form form-sm mb-5">
-                                        <i class="fa fa-user prefix"></i>
-                                        <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
-                                        <label data-error="wrong" data-success="right" for="modalLRInput12">First Name</label>
-                                    </div>
+                                    <i class="fa fa-user prefix"></i>
+                                    <input type="text" id="firstname" name="firstname" class="form-control form-control-sm validate">
+                                    <label data-error="wrong" data-success="right" for="firstname">First Name</label>
+                                </div>
 
                                 <div class="md-form form-sm mb-5">
-                                        <i class="fa fa-user prefix"></i>
-                                        <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
-                                        <label data-error="wrong" data-success="right" for="modalLRInput12">Last Name</label>
-                                    </div>
-                            <div class="md-form form-sm mb-5">
-                                <i class="fa fa-envelope prefix"></i>
-                                <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="right" for="modalLRInput12">Your email</label>
-                            </div>
+                                    <i class="fa fa-user prefix"></i>
+                                    <input type="text" id="lastname" name="lastname" class="form-control form-control-sm validate">
+                                    <label data-error="wrong" data-success="right" for="lastname">Last Name</label>
+                                </div>
 
-                            <div class="md-form form-sm mb-5">
-                                <i class="fa fa-lock prefix"></i>
-                                <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="right" for="modalLRInput13">Your password</label>
-                            </div>
+                                <div class="md-form form-sm mb-5">
+                                    <i class="fa fa-envelope prefix"></i>
+                                    <input type="email" id="email" name="email" class="form-control form-control-sm validate">
+                                    <label data-error="wrong" data-success="right" for="email">Your email</label>
+                                </div>
 
-                            <div class="md-form form-sm mb-4">
-                                <i class="fa fa-lock prefix"></i>
-                                <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="right" for="modalLRInput14">Repeat password</label>
-                            </div>
+                                <div class="md-form form-sm mb-5">
+                                    <i class="fa fa-lock prefix"></i>
+                                    <input type="password" id="password" name="password" class="form-control form-control-sm validate">
+                                    <label data-error="wrong" data-success="right" for="password">Your password</label>
+                                </div>
+<!-- 
+                                <div class="md-form form-sm mb-4">
+                                    <i class="fa fa-lock prefix"></i>
+                                    <input type="password" id="passrepeat" class="form-control form-control-sm validate">
+                                    <label data-error="wrong" data-success="right" for="passrepeat">Repeat password</label>
+                                </div> -->
 
-                            <div class="text-center form-sm mt-2">
-                                <button class="btn btn-info">Sign up <i class="fa fa-sign-in ml-1"></i></button>
+                                <div class="text-center form-sm mt-2">
+                                    <button class="btn btn-info" type="submit">Sign up <i class="fa fa-sign-in ml-1"></i></button>
+                                </div>
                             </div>
-
-                        </div>
+                        </form>
+                        
                         <!--Footer-->
                         <div class="modal-footer">
                             <!-- <div class="options text-right">
