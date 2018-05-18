@@ -8,32 +8,32 @@ const passport = require('passport');
 let auth_help = require('./helpers/auth_help');
 
 // Signup routes
-user_routes.get('/signup', 
-    (req,res) => {
+user_routes.get('/signup',
+    (req, res) => {
         res.render('pages/signup');
     }
 );
-user_routes.post('/signup',passport.authenticate('local-signup', 
-        {
-            successRedirect: '/dash',
-            failureRedirect: '/signup'
-        }
-    )
+user_routes.post('/signup', passport.authenticate('local-signup',
+    {
+        successRedirect: '/dash',
+        failureRedirect: '/signup'
+    }
+)
 );
 
 // Login routes
-user_routes.get('/login', 
-    (req,res) => {
+user_routes.get('/login',
+    (req, res) => {
         res.render('pages/login');
     }
 );
-user_routes.post('/login', passport.authenticate ('local-login', 
-        {
-            successRedirect: '/dash',
-            failureRedirect: '/login'
-        }
+user_routes.post('/login', passport.authenticate('local-login',
+    {
+        successRedirect: '/dash',
+        failureRedirect: '/login'
+    }
 
-    )
+)
 );
 
 // Google Login Routes
@@ -51,38 +51,44 @@ user_routes.get('/auth/google/callback', passport.authenticate('google', { failu
 
 
 // Dash route
-user_routes.get('/dash', auth_help.loggedIn, 
-    (req,res) => {
+user_routes.get('/dash', auth_help.loggedIn,
+    (req, res) => {
         res.render('pages/auth_dash');
     }
 );
 
 // Logout routes
-user_routes.get('/logout', 
-    (req,res) => {
+user_routes.get('/logout',
+    (req, res) => {
         req.logOut();
-        res.redirect('/');  
+        res.redirect('/');
     }
 );
 
 // Planner routes
-user_routes.get('/planner', 
-    (req,res) => {
+user_routes.get('/planner',
+    (req, res) => {
         console.log("heeeeeeee")
         res.render('pages/create_planner');
     }
 );
 
 // Home route
-user_routes.get('/',  
-    (req,res) => {
+user_routes.get('/',
+    (req, res) => {
         res.render('pages/home');
     }
 );
 //view trips route
-user_routes.get('/view',  
-    (req,res) => {
+user_routes.get('/view',
+    (req, res) => {
         res.render('pages/view_trips');
+    }
+);
+
+user_routes.get('/plan',
+    (req, res) => {
+        res.render('pages/plan_trip');
     }
 );
 
