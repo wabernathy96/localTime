@@ -1,57 +1,13 @@
 <!-- views/home.ejs -->
 
-<!-- views/home.ejs -->
-
 <!DOCTYPE html>
 <html>
 
 <head>
     <% include ../partials/head %>
-    <!-- <style>
-        body {
-            padding-top: 20px;
-            padding-bottom: 20px;
-        }
-        .jumbotron {
-          margin-top: 10px;
-        }
-    </style> -->
-    
 </head>
 
 <body>
-    
-    <!-- <h1> SANITY CHECK </h1>
-    <div class="container">
-        <div class="jumbotron">
-            <h1>All about Node</h1>
-            <p class="lead">Check out our articles below!</p>
-        </div>
-        <br><br><br>
-        <div class="row">
-            <div class="col-lg-12">
-                <form action="/signup" method="GET">
-                    <button type="submit">
-                        Signup
-                    </button>
-                </form>
-                
-                <form action="/login" method="GET">
-                    <button type="submit">
-                        Login
-                    </button>
-                </form>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="list-group">
-                  loop over blog posts and render them -->
-                <!-- </div>
-            </div>
-        </div>
-    </div> -->
-
     <div class="slider">
         <div class="load">
         </div>
@@ -60,14 +16,6 @@
                 <h1 class="animated rollIn">Local Time</h1>
                 <p>LIVE.LIFE.LOCALLY.</p>
 
-                <div class="input-group md-form form-sm form-2 pl-0">
-                    <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" aria-label="Search" id="fontcolor">
-                    <div class="input-group-append">
-                        <span class="input-group-text amber lighten-3" id="basic-text1">
-                            <i class="fa fa-search text-grey"  aria-hidden="true"></i>
-                        </span>
-                    </div>
-                </div>
                 <div class="text-center">
                         <a href="" class="btn btn-warning btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm" id="loginModal"> LogIn/Register</a>
                 </div>
@@ -98,28 +46,30 @@
                 <div class="tab-content">
                     <!--Panel 7-->
                     <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
-
+                    <form action="/login" method="POST" >
                         <!--Body-->
                         <div class="modal-body mb-1">
                             <div class="md-form form-sm mb-5">
                                 <i class="fa fa-envelope prefix"></i>
-                                <input type="email" id="modalLRInput10" name="modalLRInput10" class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="right" for="modalLRInput10">Your email</label>
+                                <input type="email" id="email" name="email" class="form-control form-control-sm validate">
+                                <label data-error="wrong" data-success="right" for="email">Your email</label>
                             </div>
 
                             <div class="md-form form-sm mb-4">
                                 <i class="fa fa-lock prefix"></i>
-                                <input type="password" id="modalLRInput11" class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="right" for="modalLRInput11">Your password</label>
+                                <input type="password" id="password" class="form-control form-control-sm validate">
+                                <label data-error="wrong" data-success="right" for="password">Your password</label>
                             </div>
                             <div class="text-center mt-2">
-                                <button class="btn btn-warning">Log in <i class="fa fa-sign-in ml-1"></i></button>
+                                    <button class="btn btn-warning" type="submit">Log in <i class="fa fa-sign-in ml-1"></i></button>
+                                </form>
                             </div>
                         </div>
+                    </form>
                         <!--Footer-->
                         <div class="modal-footer">
                             <div class="options text-center text-md-right mt-1">
-                                <p>Sign in with your <a href="#" class="orange-text">Google Account</a></p>
+                                <p>Sign in with your <a href="/auth/google" class="orange-text">Google Account</a></p>
                                 <!-- <p>Forgot <a href="#" class="orange-text">Password?</a></p> -->
                             </div>
                             <button type="button" class="btn btn-outline-warning waves-effect ml-auto" data-dismiss="modal">Close</button>

@@ -24,20 +24,13 @@ routes.post('/signup',passport.authenticate('local-signup',
 );
 
 // Login routes
-routes.get('/login', 
-    (req,res) => {
-        console.log(`WORKING: ${JSON.stringify(req.body)}`);
-        res.render('pages/login');
-        
-    }
-);
 routes.post('/login', passport.authenticate ('local-login', 
         {
             successRedirect: '/dash',
             failureRedirect: '/login'
         }
 
-)
+    )
 );
 
 // Google Login Routes
