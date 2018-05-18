@@ -93,6 +93,13 @@ routes.get('/api/all_users',
     }
 )
 
+routes.get('/test',
+    (req,res) => {
+        console.log("hererer")
+        userC.getCards(req,res);
+    //    res.render('partials/user_cards', { user: res[0] });
+    }
+)
 
 
 // Export routes to server.js

@@ -1,0 +1,11 @@
+<h1>Recent Blog Posts</h1>
+<% for(let i = 0; i < user.length; i++) { %>
+  <article>
+    <h2>
+      <%= user[i].dataValues.firstname %>
+        </h2>
+        <p>
+          <%= user[i].dataValues.email%>
+        </p>
+  </article>
+  <% } %>

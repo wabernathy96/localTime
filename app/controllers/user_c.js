@@ -1,11 +1,11 @@
 const db = require('../models');
 
 module.exports = {
-    getAll: (req,res) => {
+    getCards: (req,res) => {
         db.user.findAll({})
         .then(
             (user) => {
-                return res.json(user);
+                return res.render('partials/user_cards', { user: user });
             }
         )
     }
