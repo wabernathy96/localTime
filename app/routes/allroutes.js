@@ -53,8 +53,9 @@ routes.get('/auth/google/callback', passport.authenticate('google', { failureRed
     }
 );
 
+// NEEDS LOGIC!!!!!!!
 // Dash route
-routes.get('/dash', auth_help.loggedIn, 
+routes.get('/dash/', auth_help.loggedIn, 
     (req,res) => {
         res.render('pages/auth_dash');
     }
