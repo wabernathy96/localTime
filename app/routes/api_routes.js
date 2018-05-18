@@ -1,7 +1,7 @@
 // CONTROLLERS FOR DB INFO FOR AUTHORIZED USERS
 let router = require('express').Router();
 const passport = require('passport');
-const db = require("../models")
+const db = require("../models");
 
 // ---------------user data---------------
 // router.get('/api/get_user', function (req, res) {
@@ -17,7 +17,7 @@ const db = require("../models")
 
 router.get("api/home", function(req,res){
     res.render("pages/home");
-})
+});
 
 
 //---------------planner data---------------

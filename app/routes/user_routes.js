@@ -76,9 +76,17 @@ user_routes.get('/planner',
 // Home route
 user_routes.get('/',  
     (req,res) => {
-        res.render('pages/home')
+        res.render('pages/home');
     }
-)
+);
+//view trips route
+user_routes.get('/view',  
+    (req,res) => {
+        res.render('pages/view_trips');
+    }
+);
+
+
 
 // Export routes to server.js
 module.exports = user_routes;
