@@ -84,13 +84,13 @@ routes.get('/',
     }
 );
 //view trips route
-user_routes.get('/view',
+routes.get('/view',
     (req, res) => {
         res.render('pages/view_trips');
     }
 );
 
-user_routes.get('/plan',
+routes.get('/plan',
     (req, res) => {
         res.render('pages/plan_trip');
     }
