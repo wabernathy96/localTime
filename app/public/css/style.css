@@ -1,0 +1,110 @@
+.view {
+    background: url("/assets/img/aerial-aerial-view-aeroplane-59519.jpg")no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+@media (min-width: 768px) {
+    .view {
+        overflow: visible;
+        margin-top: -56px;
+    }
+}
+.navbar {
+    z-index: 1;
+    font-family: 'Pacifico', cursive;
+}
+.navbar {
+    background-color: transparent;
+}
+.top-nav-collapse {
+    background-color: #ffa726;
+}
+@media only screen and (max-width: 768px) {
+    .navbar {
+        background-color: #ffa726;
+    }
+}
+
+header h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 5em;
+}
+
+section {
+    text-align: center;
+}
+
+.trip-items {
+    margin-top: 15em;
+}
+
+.md-form {
+    width: 295px;
+    margin: 0 auto 0 auto;  
+}
+
+.md-form label{
+    color: #ffffff;
+}
+
+.md-form :active{
+    width: 295px;
+    margin: 0 auto 0 auto;  
+}
+
+.md-form input[type=text]{
+    border-bottom: 1px solid #ffffff;
+}
+
+.logo-text img{
+    width: 65px;
+    height: 65px;
+    margin-left: 165px;
+}
+
+.logo-text {
+    display: inline-block;
+}
+
+h5 {
+    font-size: 1.5em;
+    font-weight: 200;
+}
+
+.team-container {
+    font-size: 2em;
+}
+
+ul {
+    display: inline-flex;
+}
+
+li {
+    margin: 10px;
+}
+
+footer h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 4em;
+    margin-left: 70px;
+}
+
+.contact-btn {
+    margin-bottom: 2em;
+}
+
+footer hr {
+    border-top: 1px solid white;
+}
+
+a {
+    color: #ffa726;
+}
+
+a:hover {
+    color: #f57c00;
+}
+
+header ul {
+    float: right;
+}
