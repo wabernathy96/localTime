@@ -37,7 +37,7 @@ routes.post('/login', passport.authenticate ('local-login',
             failureRedirect: '/login'
         }
 
-    )
+)
 );
 
 // Google Login Routes
@@ -65,7 +65,7 @@ routes.get('/dash/', auth_help.loggedIn,
 routes.get('/logout', 
     (req,res) => {
         req.logOut();
-        res.redirect('/');  
+        res.redirect('/');
     }
 );
 
@@ -82,7 +82,21 @@ routes.get('/',
     (req,res) => {
         res.render('pages/home')
     }
-)
+);
+//view trips route
+user_routes.get('/view',
+    (req, res) => {
+        res.render('pages/view_trips');
+    }
+);
+
+user_routes.get('/plan',
+    (req, res) => {
+        res.render('pages/plan_trip');
+    }
+);
+
+
 
 routes.get('/api/get_user',
     (req,res) => {
