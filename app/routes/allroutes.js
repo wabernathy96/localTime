@@ -14,7 +14,7 @@ let userC = require('../controllers/user_c');
 // Signup routes
 routes.post('/signup',passport.authenticate('local-signup', 
         {
-            successRedirect: '/dash',
+            successRedirect: '/userdash',
             failureRedirect: '/'
         }
     )
@@ -23,7 +23,7 @@ routes.post('/signup',passport.authenticate('local-signup',
 // Login routes
 routes.post('/login', passport.authenticate ('local-login', 
         {
-            successRedirect: '/dash',
+            successRedirect: '/userdash',
             failureRedirect: '/'
         }
     )
