@@ -7,73 +7,156 @@
 <!--Navbar-->
 <nav class="navbar navbar-expand-lg #ffab40 orange accent-2">
 
-        <!-- Navbar brand -->
-        <a class="navbar-brand" href="#">Local Time</a>
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="#">Local Time</a>
 
-        <!-- Collapse button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <!-- Collapsible content -->
-        <div class="collapse navbar-collapse" id="basicExampleNav">
-            <ul class="navbar-nav mr-auto">
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
             </li>
-    
-            </ul>
-            <!-- Links -->
 
-            <form class="form-inline">
-             <div class= "d-flex justify-content-end">
-                 <div class="collapse navbar-collapse" id="basicExampleNav">
-            <ul class="navbar-nav mr-auto">
-            <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hello, User</a>
-                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Edit Profile</a>
-                        <a class="dropdown-item" href="#">Edit Calendar</a>
-                        <a class="dropdown-item" href="#">Logout <form  action="/logout" method="GET" name="logout" id="logoutlink" type= "submit" for="logout">
-                            <!-- <button type="submit" for="logout">
-                                Logout
-                            </button> -->
-                        </form></a>
-                    </div>
-                </li>
-    
-            </ul>
-                
-            </form>
+        </ul>
+        <!-- Links -->
+
+        <form class="form-inline">
+            <div class="d-flex justify-content-end">
+                <div class="collapse navbar-collapse" id="basicExampleNav">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                            <!-- <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hello, User</a> -->
+                            <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                                <li class="nav-item dropdown">
+                                    <a href="#insurance-head-section" class="nav-link dropdown-toggle" data-toggle="dropdown" style="color:blue">Hello, New User</a>
+                                    <div class="dropdown-menu">
+                                        <a href="#profile" class="dropdown-item" data-toggle="modal" data-target="#profile">Edit Profile</a>
+                                        <a href="#calendar" class="dropdown-item" data-toggle="modal" data-target="#calendar">Edit Calendar</a>
+                                        <a href="" class="dropdown-item">Logout
+                                            <form action="/logout" method="POST" name="logout" id="logoutlink" type="submit" for="logout">
+                                        </a>
+                                        <!-- <button type="submit" for="logout">
+                                            Logout
+                                        </button> -->
+                                        <!-- </form>
+                                        </a> -->
+                                    </div>
+                                </li>
+                            </div>
+                        </li>
+                    </ul>
+        </form>
         </div>
         <!-- Collapsible content -->
 
-    </nav>
-    <!--/.Navbar-->
+</nav>
+<!--/.Navbar-->
 
-    <div class="slider">
-        <div class="load">
+<!--Modal for Editing Profile -->
+
+<div class="modal" id="profile">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title"></h5>
+              <button class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <div class="list-group">
+                <!-- <div class="d-flex w-100 justify-content-between"> -->
+                  <h6>Your Profile</h6>
+                  <div class="md-form form-sm mb-5">
+                        <i class="fa fa-user prefix"></i>
+                        <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                        <label data-error="wrong" data-success="right" for="modalLRInput12">First Name</label>
+                    </div>
+                    <div class="md-form form-sm mb-5">
+                        <i class="fa fa-user prefix"></i>
+                        <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                        <label data-error="wrong" data-success="right" for="modalLRInput12">Last Name</label>
+                    </div>
+                    <div class="md-form form-sm mb-5">
+                        <i class="fa fa-envelope prefix"></i>
+                        <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                        <label data-error="wrong" data-success="right" for="modalLRInput12">Your email</label>
+                    </div>
+
+                    <div class="md-form form-sm mb-5">
+                        <i class="fa fa-lock prefix"></i>
+                        <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
+                        <label data-error="wrong" data-success="right" for="modalLRInput13">Your password</label>
+                    </div>
+
+                    <div class="md-form form-sm mb-4">
+                        <i class="fa fa-lock prefix"></i>
+                        <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
+                        <label data-error="wrong" data-success="right" for="modalLRInput14">Repeat password</label>
+                    </div>
+        
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-warning" data-dismiss="modal">Update</button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="content">
-            <div class="principal">
-                <h1 class="animated rollIn">Local Time</h1>
-                <p>LIVE.LIFE.LOCALLY.</p>
 
-                <div class="text-center">
-                        <a href="" class="btn btn-warning btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm" id="loginModal"> Create Trip</a>
-                </div>
-                <div class="text-center">
-                        <a href="" class="btn btn-warning btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm" id="loginModal"> View Existing Trip</a>
-                </div>
+<!-- Profile Modal ENDS -->
+
+<!-- Calendar Modal BEGINS -->
+
+<div class="modal" id="calendar">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"></h5>
+          <button class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="list-group">
+            <div class="d-flex w-100 justify-content-between">
+              <h6>Your Profile</h6>
+              <div class="modal-footer">
+                    <button class="btn btn-warning" data-dismiss="modal">Save-Update</button>
+              </div> 
+            </div>
+          </div>    
+        </div>
+      </div>
+    </div>             
+</div>
+
+<!-- Calendar Modal ENDS -->
+
+<div class="slider">
+    <div class="load">
+    </div>
+    <div class="content">
+        <div class="principal">
+            <h1 class="animated rollIn">Local Time</h1>
+            <p>LIVE.LIFE.LOCALLY.</p>
+
+            <div class="text-center">
+                <a href="" class="btn btn-warning btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm" id="loginModal"> Create Trip</a>
+            </div>
+            <div class="text-center">
+                <a href="" class="btn btn-warning btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm" id="loginModal"> View Existing Trip</a>
             </div>
         </div>
     </div>
+</div>
 
 
-    <!--other modal -->
+<!--other modal -->
 
 
-      </section>
+</section>
 
 <header class="header">
     <div class="row">
@@ -100,8 +183,7 @@
 
 
     <% include ../partials/datePickForm %>
-    <% include ../view_scripts/req %>
-    <% include ../view_scripts/logout %>
-    <% include ../view_scripts/datePick %>s
+        <% include ../view_scripts/req %>
+            <% include ../view_scripts/logout %>
+                <% include ../view_scripts/datePick %>s
 </main>
-    
