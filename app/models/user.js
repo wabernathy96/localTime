@@ -55,6 +55,10 @@ module.exports = function(sequelize, DataTypes) {
         User.hasMany(models.planner, {
           onDelete: "cascade"
         });
+
+        User.hasMany(models.date, {
+            onDelete: "cascade"
+          });
       };
     return User;
 }

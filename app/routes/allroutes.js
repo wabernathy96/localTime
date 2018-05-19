@@ -61,8 +61,7 @@ routes.get('/logout',
 // Planner routes
 routes.get('/planner', 
     (req,res) => {
-        console.log("heeeeeeee")
-        res.render('pages/create_planner');
+        userC.getCards(req,res);
     }
 );
 
@@ -79,12 +78,20 @@ routes.get('/view',
     }
 );
 
-routes.get('/plan',
+routes.get('/test',
     (req, res) => {
-        res.render('pages/plan_trip');
+        userC.getAll(req,res, function(){
+        });
     }
 );
 
+
+routes.get("/userdash/:user_id",
+    (req,res) => {
+        
+        userC.getUser(req,res);
+    }
+)
 
 
 routes.get('/api/all_users',
@@ -93,13 +100,12 @@ routes.get('/api/all_users',
     }
 )
 
-routes.get('/test',
+routes.get('/plan',
     (req,res) => {
-        console.log("hererer")
-        userC.getCards(req,res);
-    //    res.render('partials/user_cards', { user: res[0] });
+       userC.getCards(req,res);
     }
 )
+
 
 
 // Export routes to server.js

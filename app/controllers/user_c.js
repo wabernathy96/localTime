@@ -5,7 +5,32 @@ module.exports = {
         db.user.findAll({})
         .then(
             (user) => {
-                return res.render('partials/user_cards', { user: user });
+                
+                res.render('pages/plan_trip', { user : user}
+                )
+            }
+        )
+    },
+
+    getAll: (req,res) => {
+        db.user.findAll({})
+        .then(
+            (user) => {
+                console.log(user)
+                res.json(user);
+            }
+        )
+    },
+
+    getUser: (req,res) => {
+        db.user.findOne({
+            where:{
+                user_id: req.params.user_id
+            }
+        })
+        .then(
+            (user) => {
+                res.json(user);
             }
         )
     }
