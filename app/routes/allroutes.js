@@ -85,6 +85,12 @@ routes.get('/test',
     }
 );
 
+routes.get('/userdash',
+    (req, res) => {
+        res.render('pages/user_dash');
+    }
+);
+
 
 routes.get("/userdash/:user_id",
     (req,res) => {
