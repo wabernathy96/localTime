@@ -21,10 +21,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Passport Middleware
 // Session secret
-app.use(session({ secret: 'djcat', resave: true, saveUninitialized:true})); 
+app.use(session({ secret: 'djcat', resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 // Persistent login sessions
-app.use(passport.session()); 
+app.use(passport.session());
 
 // Require env
 var env = require('dotenv').load();
@@ -46,7 +46,7 @@ require('./app/config/passport')(passport, models.user);
 // Routing
 // User routes
 // let api_routes= require ('./app/routes/api_routes');
-let routes = require ('./app/routes/allroutes');
+let routes = require('./app/routes/allroutes');
 app.use('/', routes);
 
 
@@ -54,11 +54,11 @@ app.use('/', routes);
 // Sync Database
 models.sequelize.sync().then(() => {
   console.log('Server is synced and Live');
-}).catch(function(err) {
+  // Start server
+  app.listen(PORT, function () {
+    console.log(`App listening on PORT: ${PORT}`);
+  });
+}).catch(function (err) {
   console.log(`ERROR WITH DB UPDATE: ${err}`);
 });
 
-// Start server
-app.listen(PORT, function() {
-  console.log(`App listening on PORT: ${PORT}`);
-});

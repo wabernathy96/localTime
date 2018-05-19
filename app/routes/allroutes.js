@@ -36,19 +36,32 @@ routes.get('/auth/google', passport.authenticate(
 );
 
 routes.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }),
+(req, res) => {
+    // Successful authentication, redirect to dashboard.
+    res.redirect('/dash');
+}
+);
+
+// Dash route
+routes.get('/dash/', auth_help.loggedIn, 
+(req,res) => {
+    res.render('pages/auth_dash');
+}
+);
+
+routes.get('/userdash',
     (req, res) => {
-        // Successful authentication, redirect to dashboard.
-        res.redirect('/dash');
+        res.render('pages/user_dash');
     }
 );
 
-// NEEDS LOGIC!!!!!!!
-// Dash route
-routes.get('/dash/', auth_help.loggedIn, 
+
+routes.get("/userdash/:user_id",
     (req,res) => {
-        res.render('pages/auth_dash');
+        
+        userC.getUser(req,res);
     }
-);
+)
 
 // Logout routes
 routes.get('/logout', 
@@ -78,26 +91,7 @@ routes.get('/view',
     }
 );
 
-routes.get('/test',
-    (req, res) => {
-        userC.getAll(req,res, function(){
-        });
-    }
-);
 
-routes.get('/userdash',
-    (req, res) => {
-        res.render('pages/user_dash');
-    }
-);
-
-
-routes.get("/userdash/:user_id",
-    (req,res) => {
-        
-        userC.getUser(req,res);
-    }
-)
 
 
 routes.get('/api/all_users',
