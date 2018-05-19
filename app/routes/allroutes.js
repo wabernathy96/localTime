@@ -85,6 +85,12 @@ routes.get('/plan',
     }
 );
 
+routes.get('/userdash',
+    (req, res) => {
+        res.render('pages/user_dash');
+    }
+);
+
 
 
 routes.get('/api/all_users',

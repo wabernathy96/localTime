@@ -2,13 +2,84 @@
     <% include ../partials/head %>
 </head>
 
-<h1> USER DASHBOARD </h1>
+<!-- <h1> USER DASHBOARD </h1> -->
+
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg #ffab40 orange accent-2">
+
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="#">Local Time</a>
+
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="basicExampleNav">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+            </li>
+    
+            </ul>
+            <!-- Links -->
+
+            <form class="form-inline">
+             <div class= "d-flex justify-content-end">
+                 <div class="collapse navbar-collapse" id="basicExampleNav">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hello, User</a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Edit Profile</a>
+                        <a class="dropdown-item" href="#">Edit Calendar</a>
+                        <a class="dropdown-item" href="#">Logout <form  action="/logout" method="GET" name="logout" id="logoutlink" type= "submit" for="logout">
+                            <!-- <button type="submit" for="logout">
+                                Logout
+                            </button> -->
+                        </form></a>
+                    </div>
+                </li>
+    
+            </ul>
+                
+            </form>
+        </div>
+        <!-- Collapsible content -->
+
+    </nav>
+    <!--/.Navbar-->
+
+    <div class="slider">
+        <div class="load">
+        </div>
+        <div class="content">
+            <div class="principal">
+                <h1 class="animated rollIn">Local Time</h1>
+                <p>LIVE.LIFE.LOCALLY.</p>
+
+                <div class="text-center">
+                        <a href="" class="btn btn-warning btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm" id="loginModal"> Create Trip</a>
+                </div>
+                <div class="text-center">
+                        <a href="" class="btn btn-warning btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm" id="loginModal"> View Existing Trip</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--other modal -->
+
+
+      </section>
 
 <header class="header">
     <div class="row">
         <div class="col-md-12">
-            <form action="/logout" method="GET">
-                <button type="submit">
+            <form action="/logout" method="GET" name="logout">
+                <button type="submit" for="logout">
                     Logout
                 </button>
             </form>
@@ -30,6 +101,7 @@
 
     <% include ../partials/datePickForm %>
     <% include ../view_scripts/req %>
+    <% include ../view_scripts/logout %>
     <% include ../view_scripts/datePick %>s
 </main>
     
