@@ -45,19 +45,15 @@
             let dates = $('.datetimepicker-input');
             console.log('dates', dates);
             let datePairs = [];
-            for (let i = 0; i < dates.length; i+=2) {
+            for (let i = 0; i < dates.length; i += 2) {
                 let pair = {
                     start: dates[i].value,
-                    end: dates[i+1].value
+                    end: dates[i + 1].value
                 };
-                datePairs.push(pair);
+                var test = JSON.stringify(pair);
+                datePairs.push(test);
             }
             console.log(`Date Pairs: ${datePairs}`);
-            
         }
     );
-</script>  
-
-       
-        
-        
+</script>
