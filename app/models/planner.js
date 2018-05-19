@@ -13,7 +13,7 @@ module.exports = function (sequelize, DataTypes) {
     flag: DataTypes.BOOLEAN
   })
 
-  
+
   planner.associate = function(models) {
     // Associating Author with Posts
     // When an Author is deleted, also delete any associated Posts

@@ -52,7 +52,7 @@ app.use('/', routes);
 
 
 // Sync Database
-models.sequelize.sync().then(() => {
+models.sequelize.sync({force:true}).then(() => {
   console.log('Server is synced and Live');
 }).catch(function(err) {
   console.log(`ERROR WITH DB UPDATE: ${err}`);
