@@ -5,81 +5,107 @@
 
 <head>
     <% include ../partials/head %>
+        <title>Local Time</title>
 </head>
 
 <body>
+    <header>
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+            <a class="navbar-brand" href="#">
+                <strong>Local Time</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <!-- <ul class="navbar-nav mr-auto mt-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#">Sign up</a>
+                            </li>
+                        </ul> -->
+            </div>
+        </nav>
+    </header>
     <div class="slider">
         <div class="load">
         </div>
         <div class="content">
             <div class="principal">
-                <h1 class="animated rollIn">Local Time</h1>
-                <p>LIVE.LIFE.LOCALLY.</p>
+                <h1 class="animated fadeInUp">Local Time</h1>
+                <p class="animated fadeInUp">LIVE.LIFE.LOCALLY.</p>
 
-                <div class="text-center">
-                        <a href="" class="btn btn-warning btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm" id="loginModal"> LogIn/Register</a>
+                <div class="text-center animated fadeInUp">
+                    <a href="" class="btn btn-warning btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm" id="loginModal"> LogIn/Register</a>
                 </div>
             </div>
         </div>
     </div>
 
     <!--Modal: Login / Register Form-->
-<div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog cascading-modal" role="document">
-        <!--Content-->
-        <div class="modal-content">
-            <!--Modal cascading tabs-->
-            <div class="modal-c-tabs">
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs tabs-2 orange lighten-3" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fa fa-user mr-1"></i> Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fa fa-user-plus mr-1"></i> Register</a>
-                    </li>
-                </ul>
-                <!-- Tab panels -->
-                <div class="tab-content">
-                    <!--Panel 7-->
-                    <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
-                    <form action="/login" method="POST" >
-                        <!--Body-->
-                        <div class="modal-body mb-1">
-                            <div class="md-form form-sm mb-5">
-                                <i class="fa fa-envelope prefix"></i>
-                                <input type="email" id="email" name="email" class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="right" for="email">Your email</label>
-                            </div>
+    <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog cascading-modal" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Modal cascading tabs-->
+                <div class="modal-c-tabs">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs tabs-2 orange lighten-3" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab">
+                                <i class="fa fa-user mr-1"></i> Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#panel8" role="tab">
+                                <i class="fa fa-user-plus mr-1"></i> Register</a>
+                        </li>
+                    </ul>
+                    <!-- Tab panels -->
+                    <div class="tab-content">
+                        <!--Panel 7-->
+                        <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+                            <form action="/login" method="POST">
+                                <!--Body-->
+                                <div class="modal-body mb-1">
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fa fa-envelope prefix"></i>
+                                        <input type="email" id="email" name="email" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="email">Your email</label>
+                                    </div>
 
-                            <div class="md-form form-sm mb-4">
-                                <i class="fa fa-lock prefix"></i>
-                                <input type="password" id="password" name="password" class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="right" for="password">Your password</label>
+                                    <div class="md-form form-sm mb-4">
+                                        <i class="fa fa-lock prefix"></i>
+                                        <input type="password" id="password" name="password" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="password">Your password</label>
+                                    </div>
+                                    <div class="text-center mt-2">
+                                        <button class="btn btn-warning" type="submit">Log in
+                                            <i class="fa fa-sign-in ml-1"></i>
+                                        </button>
+                            </form>
                             </div>
-                            <div class="text-center mt-2">
-                                    <button class="btn btn-warning" type="submit">Log in <i class="fa fa-sign-in ml-1"></i></button>
-                                </form>
                             </div>
-                        </div>
-                    </form>
-                        <!--Footer-->
-                        <div class="modal-footer">
-                            <div class="options text-center text-md-right mt-1">
-                                <a href="/auth/google">
-                                    <button type="button" class="btn btn-outline-warning waves-effect ml-auto">Login with Google
+                            </form>
+                            <!--Footer-->
+                            <div class="modal-footer">
+                                <div class="options text-center text-md-right mt-1">
+                                    <a href="/auth/google">
+                                        <button type="button" class="btn btn-outline-warning waves-effect ml-auto">Login with Google
                                             <img width="20px" alt="Google &quot;G&quot; Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
                                                 id="googleLogo" />
-                                        </button>  
-                                </a>
-                                <!-- <p>Sign in with your <a href="/auth/google" class="orange-text">Google Account</a></p> -->
-                                <!-- <p>Forgot <a href="#" class="orange-text">Password?</a></p> -->
+                                        </button>
+                                    </a>
+                                    <!-- <p>Sign in with your <a href="/auth/google" class="orange-text">Google Account</a></p> -->
+                                    <!-- <p>Forgot <a href="#" class="orange-text">Password?</a></p> -->
+                                </div>
+                                <button type="button" class="btn btn-outline-warning waves-effect ml-auto" data-dismiss="modal">Close</button>
                             </div>
-                            <button type="button" class="btn btn-outline-warning waves-effect ml-auto" data-dismiss="modal">Close</button>
                         </div>
-                    </div>
-                    <!--/.Panel 7-->
-                    <!-- <form id="signup" name="signup" method="post" action="/signup">
+                        <!--/.Panel 7-->
+                        <!-- <form id="signup" name="signup" method="post" action="/signup">
                         <label for="firstname">First_Name</label>
                         <input name="firstname" type="text" />
                         <label for="lastname">Last_Name</label>
@@ -93,189 +119,174 @@
                         <input class="btn" type="submit" value="Sign Up" />
                     </form> -->
 
-                    <!--Panel 8-->
-                    <div class="tab-pane fade" id="panel8" role="tabpanel">
-                        <!--Body-->
-                        <form action="/signup" id="signup" name="signup" method="post" >
-                            <div class="modal-body">
-                                <div class="md-form form-sm mb-5">
-                                    <i class="fa fa-user prefix"></i>
-                                    <input type="text" id="firstname" name="firstname" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="right" for="firstname">First Name</label>
-                                </div>
+                        <!--Panel 8-->
+                        <div class="tab-pane fade" id="panel8" role="tabpanel">
+                            <!--Body-->
+                            <form action="/signup" id="signup" name="signup" method="post">
+                                <div class="modal-body">
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fa fa-user prefix"></i>
+                                        <input type="text" id="firstname" name="firstname" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="firstname">First Name</label>
+                                    </div>
 
-                                <div class="md-form form-sm mb-5">
-                                    <i class="fa fa-user prefix"></i>
-                                    <input type="text" id="lastname" name="lastname" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="right" for="lastname">Last Name</label>
-                                </div>
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fa fa-user prefix"></i>
+                                        <input type="text" id="lastname" name="lastname" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="lastname">Last Name</label>
+                                    </div>
 
-                                <div class="md-form form-sm mb-5">
-                                    <i class="fa fa-envelope prefix"></i>
-                                    <input type="email" id="email" name="email" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="right" for="email">Your email</label>
-                                </div>
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fa fa-envelope prefix"></i>
+                                        <input type="email" id="email" name="email" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="email">Your email</label>
+                                    </div>
 
-                                <div class="md-form form-sm mb-5">
-                                    <i class="fa fa-lock prefix"></i>
-                                    <input type="password" id="password" name="password" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="right" for="password">Your password</label>
-                                </div>
-<!-- 
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fa fa-lock prefix"></i>
+                                        <input type="password" id="password" name="password" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="password">Your password</label>
+                                    </div>
+                                    <!-- 
                                 <div class="md-form form-sm mb-4">
                                     <i class="fa fa-lock prefix"></i>
                                     <input type="password" id="passrepeat" class="form-control form-control-sm validate">
                                     <label data-error="wrong" data-success="right" for="passrepeat">Repeat password</label>
                                 </div> -->
 
-                                <div class="text-center form-sm mt-2">
-                                    <button class="btn btn-warning" type="submit">Sign up <i class="fa fa-sign-in ml-1"></i></button>
+                                    <div class="text-center form-sm mt-2">
+                                        <button class="btn btn-warning" type="submit">Sign up
+                                            <i class="fa fa-sign-in ml-1"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
-                        
-                        <!--Footer-->
-                        <div class="modal-footer">
+                            </form>
+
+                            <!--Footer-->
+                            <div class="modal-footer">
                                 <a href="/auth/google">
                                     <button type="button" class="btn btn-outline-warning waves-effect ml-auto">Login with Google
-                                            <img width="20px" alt="Google &quot;G&quot; Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
-                                                id="googleLogo" />
-                                        </button>  
+                                        <img width="20px" alt="Google &quot;G&quot; Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
+                                            id="googleLogo" />
+                                    </button>
                                 </a>
-                            <!-- <div class="options text-right">
+                                <!-- <div class="options text-right">
                                 <p class="pt-1">Already have an account? <a href="#" class="blue-text">Log In</a></p>
                             </div> -->
-                            <button type="button" class="btn btn-outline-warning waves-effect ml-auto" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-outline-warning waves-effect ml-auto" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
+                        <!--/.Panel 8-->
                     </div>
-                    <!--/.Panel 8-->
+
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!--Modal: Login / Register Form-->
+
+    <!-- Section: Features v.1 -->
+    <section class="text-center my-5">
+
+        <!-- Section heading -->
+        <h2 class="h1-responsive font-weight-bold my-5">EXPERIENCE YOUR BEST LOCAL LIFE</h2>
+        <!-- Section description -->
+        <!-- <p class="lead black-text w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p> -->
+
+        <!-- Grid row -->
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-4">
+
+                <i class="fa fa-calendar fa-3x red-text"></i>
+                <h5 class="font-weight-bold my-4">STEP 1</h5>
+                <p class="black-text mb-md-0 mb-5">Select your dates and budget for your trip!
+                </p>
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-4">
+
+                <i class="fa fa-user-plus fa-3x cyan-text"></i>
+                <h5 class="font-weight-bold my-4">STEP 2</h5>
+                <p class="black-text mb-md-0 mb-5">Find your friends who are available during the same dates you are!
+                </p>
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-4">
+
+                <i class="fa fa-plane fa-3x orange-text"></i>
+                <h5 class="font-weight-bold my-4">STEP 3</h5>
+                <p class="black-text mb-0">Select your perfect itinerary and book your trip!
+                </p>
+
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+    </section>
+    <!-- Section: Features v.1 -->
+
+    <div class="view">
+
+
+        <section class="testimonials">
+            <h3 class="reviews animated fadeInLeft">REVIEWS</h3>
+            <!-- <hr> -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <p class="">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem
+                            Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                        </p>
+                        <cite>
+                            <img src="assets/img/ianpic.jpeg" width="200px" height="200px"> Ian Mitchell
+                        </cite>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem
+                            Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                        </p>
+                        <cite>
+                            <img src="assets/img/Campic.jpeg" width="200px" height="200px">Cam Kirk
+                        </cite>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem
+                            Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                        </p>
+                        <cite>
+                            <img src="assets/img/brandonpic.jpeg" width="200px" height="200px"> Brandon Gatlin
+                        </cite>
+
+                    </div>
+
                 </div>
 
             </div>
-        </div>
-        <!--/.Content-->
-    </div>
-</div>
-<!--Modal: Login / Register Form-->
-
-<!-- Section: Features v.1 -->
-<section class="text-center my-5">
-
-    <!-- Section heading -->
-    <h2 class="h1-responsive font-weight-bold my-5">EXPERIENCE YOUR BEST LOCAL LIFE</h2>
-    <!-- Section description -->
-    <!-- <p class="lead black-text w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p> -->
-  
-    <!-- Grid row -->
-    <div class="row">
-  
-      <!-- Grid column -->
-      <div class="col-md-4">
-  
-        <i class="fa fa-calendar fa-3x red-text"></i>
-        <h5 class="font-weight-bold my-4">STEP 1</h5>
-        <p class="black-text mb-md-0 mb-5">Select your dates and budget for your trip!
-        </p>
-  
-      </div>
-      <!-- Grid column -->
-  
-      <!-- Grid column -->
-      <div class="col-md-4">
-  
-        <i class="fa fa-user-plus fa-3x cyan-text"></i>
-        <h5 class="font-weight-bold my-4">STEP 2</h5>
-        <p class="black-text mb-md-0 mb-5">Find your friends who are available during the same dates you are!
-        </p>
-  
-      </div>
-      <!-- Grid column -->
-  
-      <!-- Grid column -->
-      <div class="col-md-4">
-  
-        <i class="fa fa-plane fa-3x orange-text"></i>
-        <h5 class="font-weight-bold my-4">STEP 3</h5>
-        <p class="black-text mb-0">Select your perfect itinerary and book your trip!
-        </p>
-  
-      </div>
-      <!-- Grid column -->
-  
-    </div>
-    <!-- Grid row -->
-  
-  </section>
-  <!-- Section: Features v.1 -->
-
-<div class = "view">
-  <img src="/assets/img/background5.jpg" class="img-fluid">
-  <div class = "mask pattern-3">
-  <section class = "testimonials">
-   <h3 class= "reviews">REVIEWS</h3>
-   <!-- <hr> -->
-   <div class="container">
-    <div class="row">
-     <div class="col-md-4">
-     
-       <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum 
-            Lorem Ipsum Lorem Ipsum Lorem Ipsum 
-            Lorem Ipsum Lorem Ipsum Lorem Ipsum 
-            Lorem Ipsum Lorem Ipsum Lorem Ipsum 
-            Lorem Ipsum Lorem Ipsum Lorem Ipsum 
-       </p>
-       <cite><img src="assets/img/ianpic.jpeg" width="200px" height="200px"> Ian Mitchell
-       </cite>
-         
-     </div>
-
-     <div class="col-md-4">
-           
-             <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum 
-                  Lorem Ipsum Lorem Ipsum Lorem Ipsum 
-                  Lorem Ipsum Lorem Ipsum Lorem Ipsum 
-                  Lorem Ipsum Lorem Ipsum Lorem Ipsum 
-                  Lorem Ipsum Lorem Ipsum Lorem Ipsum 
-             </p>
-             <cite><img src="assets/img/Campic.jpeg" width="200px" height="200px">Cam Kirk
-             </cite>
-              
-           </div>
-
-           <div class="col-md-4">
-               
-                 <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum 
-                      Lorem Ipsum Lorem Ipsum Lorem Ipsum 
-                      Lorem Ipsum Lorem Ipsum Lorem Ipsum 
-                      Lorem Ipsum Lorem Ipsum Lorem Ipsum 
-                      Lorem Ipsum Lorem Ipsum Lorem Ipsum 
-                 </p>
-                 <cite><img src="assets/img/brandonpic.jpeg" width="200px" height="200px"> Brandon Gatlin
-                 </cite>
-                  
-               </div>
-
+        </section>
     </div>
 
-   </div>
+    <% include ../partials/footer %>
 
-</div>
-</div>
+        <% include ../view_scripts/req %>
 
-
-
-
-  </section>
-
-    
-
-
-
-<% include ../view_scripts/req %>
-
-   
-
-    
 </body>
 
 </html>

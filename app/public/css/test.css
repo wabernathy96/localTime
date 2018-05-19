@@ -1,5 +1,6 @@
-/* body {
-  background-color: purple;
+body {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
 } */
 /* SLIDER CODE AND ABOUT US CODE BEGINS*/
 *{
@@ -42,6 +43,7 @@
 .principal h1{
   font-size: 70px;
   margin-bottom: 20px;
+  font-family: 'Pacifico', cursive;
 }
 
 .principal p {
@@ -93,12 +95,16 @@
 
 #loginModal {
   padding: 10px;
-  right: 22px;
+  
   position: relative;
 }
 
 
 /* SLIDER CODE AND ABOUT US CODE ENDS*/
+
+.my-5 {
+  margin-bottom: 7rem!important;
+}
 
 /*REVIEWS AND TESTIMONIALS */
 
@@ -110,7 +116,7 @@
 
 .testimonials{
   margin-top: 120px;
-  /* background-image: url("../assets/img/background5.jpg"); */
+  background-image: url("../assets/img/background5.jpg");
   padding-top: 50px;
   padding-bottom: 50px;
   color: rgb(15, 1, 1);
@@ -232,12 +238,17 @@ html {
 /*---------------------------End Current Trips-----------------------------------*/
 /*------------------------------Planner-----------------------------------*/
 
-.view {
+#plan-landing {
   background: url("/assets/img/aerial-aerial-view-aeroplane-59519.jpg")no-repeat center center;
   background-size: cover;
   background-attachment: fixed;
 }
-/* @media (min-width: 768px) {
+#view-landing {
+  background: url("/assets/img/backpack.jpg")no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+@media (min-width: 768px) {
   .view {
       overflow: visible;
       margin-top: -56px;
@@ -250,23 +261,31 @@ html {
 .navbar {
   background-color: transparent;
 }
+
+/* nav ul {
+  margin-left: 90%;
+} */
+
 .top-nav-collapse {
   background-color: #ffa726;
 }
+
+.navbar-collapse {
+  font-size: 1.5em;
+    color: white;
+    margin-left: 85%;
+}
+
 @media only screen and (max-width: 768px) {
   .navbar {
       background-color: #ffa726;
   }
-} */
+}
 
 header h1 {
   font-family: 'Pacifico', cursive;
   font-size: 5em;
 }
-/* 
-section {
-  text-align: center;
-} */
 
 .trip-items {
   margin-top: 15em;
@@ -341,4 +360,12 @@ a:hover {
 
 header ul {
   float: right;
+}
+
+#view-landing hr {
+  border-top: 1px solid white;
+}
+
+.mt-4, .my-4 {
+  margin-top: 0rem!important;
 }

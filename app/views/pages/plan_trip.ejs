@@ -3,7 +3,7 @@
 
 <head>
     <% include ../partials/head %>
-        <title>Plan yo trip</title>
+        <title>Plan Trip | Local Time</title>
 </head>
 
 <body>
@@ -11,86 +11,46 @@
 
         <html lang="en" class="full-height">
 
-        <!-- <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
-            <a class="navbar-brand" href="#">
-                <strong>Local Time</strong>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <ul class="navbar-nav mr-auto mt-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Sign up</a>
-                    </li>
-                </ul>
-            </div>
-        </nav> -->
+        <% include ../partials/header %>
 
-        <div class="view intro-2" style="">
-            <div class="full-bg-img">
-                <div class="mask rgba-indigo-light flex-center">
-                    <div class="container text-center white-text wow fadeInUp">
-                        <h1>Let's plan your trip</h1>
-                        <h1><%= user[0].dataValues.firstname %></h1>
-                        <br>
-                        <br>
-                        <!-- Basic dropdown -->
-                        <div class="btn-group">
-                            <button class="btn btn-orange lighten-1 dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Start Date</button>
+            <div id="plan-landing" class="view intro-2" style="">
+                <div class="full-bg-img">
+                    <div class="mask rgba-indigo-light flex-center">
+                        <div class="container text-center white-text wow fadeInUp">
+                            <h1 class="animated fadeInUp">Let's plan your trip</h1>
+                            <br>
+                            <br>
+                            <!-- Basic dropdown -->
+                            <div class="btn-group animated fadeInUp">
+                                <button class="btn btn-orange lighten-1 dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Start Date</button>
 
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Separated link</a>
-                            </div>
-                        </div>
-
-
-                        <!-- Basic dropdown -->
-                        <div class="btn-group">
-                            <button class="btn btn-orange lighten-1 dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">End Date</button>
-
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Separated link</a>
-                            </div>
-                        </div>
-
-                        <!-- Material form row -->
-                        <form>
-                            <!-- Grid row -->
-                            <div class="form-row">
-                                <!-- Grid column -->
-                                <div class="col">
-                                    <!-- Material input -->
-                                    <div class="md-form">
-                                        <input type="text" class="form-control" placeholder="Set your budget">
-                                    </div>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Separated link</a>
                                 </div>
-                                <!-- Grid column -->
                             </div>
-                            <!-- Grid row -->
-                        </form>
 
+
+                            <!-- Basic dropdown -->
+                            <div class="btn-group animated fadeInUp">
+                                <button class="btn btn-orange lighten-1 dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">End Date</button>
+
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Separated link</a>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </header>
 
     <section class="row">
@@ -98,46 +58,48 @@
             <div class="row">
                 <!-- Card Wider -->
                 <h1>Recent Blog Posts</h1>
-<% for(let i = 0; i < user.length; i++) { %>
-  <div class="col">
-      <div class="card card-cascade wider">
+                <% for(let i = 0; i < user.length; i++) { %>
+                    <div class="col">
+                        <div class="card card-cascade wider animated fadeInLeft">
 
-          <!-- Card image -->
-          <div class="view overlay">
-              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/photo6.jpg" alt="Card image cap">
-              <a href="#!">
-                  <div class="mask rgba-white-slight"></div>
-              </a>
-          </div>
+                            <!-- Card image -->
+                            <div class="view overlay">
+                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/photo6.jpg" alt="Card image cap">
+                                <a href="#!">
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
 
-          <!-- Card content -->
-          <div class="card-body text-center">
+                            <!-- Card content -->
+                            <div class="card-body text-center">
 
-              <!-- Title -->
-              <h4 class="card-title">
-                  <strong><%= user[i].dataValues.firstname %></strong>
-              </h4>
+                                <!-- Title -->
+                                <h4 class="card-title">
+                                    <strong>
+                                        <%= user[i].dataValues.firstname %>
+                                    </strong>
+                                </h4>
 
 
 
-              <!-- Linkedin -->
-              <a class="px-2 fa-lg li-ic">
-                  <i class="fa fa-linkedin"></i>
-              </a>
-              <!-- Twitter -->
-              <a class="px-2 fa-lg tw-ic">
-                  <i class="fa fa-twitter"></i>
-              </a>
-              <!-- Dribbble -->
-              <a class="px-2 fa-lg fb-ic">
-                  <i class="fa fa-facebook"></i>
-              </a>
+                                <!-- Linkedin -->
+                                <a class="px-2 fa-lg li-ic">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                                <!-- Twitter -->
+                                <a class="px-2 fa-lg tw-ic">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <!-- Dribbble -->
+                                <a class="px-2 fa-lg fb-ic">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
 
-          </div>
+                            </div>
 
-      </div>
-  </div>
-  <% } %>
+                        </div>
+                    </div>
+                    <% } %>
             </div>
         </div>
         <!-- Card Wider -->
@@ -463,7 +425,7 @@
 
 
     <% include ../view_scripts/req %>
-    
+
 </body>
 
 </html>
