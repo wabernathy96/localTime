@@ -7,14 +7,19 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <!-- <ul class="navbar-nav mr-auto mt-lg-0">
+        <ul class="navbar-nav mr-auto mt-lg-0">
             <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
+                <a href="#profile" data-toggle="modal" data-target="#profile">Edit Profile</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Sign up</a>
+            <li>
+                <form action="/logout" method="GET" name="logout" id="logoutlink" type="submit" for="logout">
+                    <a href="/">Logout</a>
+                </form>
             </li>
-        </ul> -->
-        <%= user[0].dataValues.firstname %>        
+        </ul>
+
     </div>
+
+
+
 </nav>
