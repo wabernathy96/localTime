@@ -78,12 +78,6 @@ routes.get('/view',
     }
 );
 
-routes.get('/test',
-    (req, res) => {
-        userC.getAll(req,res, function(){
-        });
-    }
-);
 
 routes.get('/userdash',
     (req, res) => {
