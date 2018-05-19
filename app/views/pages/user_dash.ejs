@@ -3,332 +3,350 @@
 </head>
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
-        <a class="navbar-brand" href="#">
-            <strong>Local Time</strong>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <ul class="navbar-nav mr-auto mt-lg-0">
-                <li class="nav-item">
-                    <a href="#profile" data-toggle="modal" data-target="#profile">Edit Profile</a>
-                </li>
-            </ul>
-        </div>
-    
-    </nav>
+    <a class="navbar-brand" href="#">
+        <strong>Local Time</strong>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav mr-auto mt-lg-0">
+            <li class="nav-item">
+                <a href="#profile" data-toggle="modal" data-target="#profile">Edit Profile</a>
+            </li>
+        </ul>
+    </div>
 
-    <!--Modal for Editing Profile -->
+</nav>
 
-    <div class="modal" id="profile">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title"></h5>
-                    <button class="close" data-dismiss="modal">&times;</button>
+<!--Modal for Editing Profile -->
+
+<div class="modal" id="profile">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <button class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="list-group">
+                    <!-- <div class="d-flex w-100 justify-content-between"> -->
+                    <h6>Your Profile</h6>
+                    <div class="md-form form-sm mb-5">
+                        <i class="fa fa-user prefix"></i>
+                        <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                        <label data-error="wrong" data-success="right" for="modalLRInput12">First Name</label>
+                    </div>
+                    <div class="md-form form-sm mb-5">
+                        <i class="fa fa-user prefix"></i>
+                        <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                        <label data-error="wrong" data-success="right" for="modalLRInput12">Last Name</label>
+                    </div>
+                    <div class="md-form form-sm mb-5">
+                        <i class="fa fa-envelope prefix"></i>
+                        <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                        <label data-error="wrong" data-success="right" for="modalLRInput12">Your email</label>
+                    </div>
+
+                    <div class="md-form form-sm mb-5">
+                        <i class="fa fa-lock prefix"></i>
+                        <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
+                        <label data-error="wrong" data-success="right" for="modalLRInput13">Your password</label>
+                    </div>
+
+                    <div class="md-form form-sm mb-4">
+                        <i class="fa fa-lock prefix"></i>
+                        <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
+                        <label data-error="wrong" data-success="right" for="modalLRInput14">Repeat password</label>
+                    </div>
+
                 </div>
-                <div class="modal-body">
-                    <div class="list-group">
-                        <!-- <div class="d-flex w-100 justify-content-between"> -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-warning" data-dismiss="modal">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Profile Modal ENDS -->
+
+<!-- Calendar Modal BEGINS -->
+
+<div class="modal" id="calendar">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <button class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="list-group">
+                    <div class="d-flex w-100 justify-content-between">
                         <h6>Your Profile</h6>
-                        <div class="md-form form-sm mb-5">
-                            <i class="fa fa-user prefix"></i>
-                            <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
-                            <label data-error="wrong" data-success="right" for="modalLRInput12">First Name</label>
-                        </div>
-                        <div class="md-form form-sm mb-5">
-                            <i class="fa fa-user prefix"></i>
-                            <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
-                            <label data-error="wrong" data-success="right" for="modalLRInput12">Last Name</label>
-                        </div>
-                        <div class="md-form form-sm mb-5">
-                            <i class="fa fa-envelope prefix"></i>
-                            <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
-                            <label data-error="wrong" data-success="right" for="modalLRInput12">Your email</label>
-                        </div>
-
-                        <div class="md-form form-sm mb-5">
-                            <i class="fa fa-lock prefix"></i>
-                            <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
-                            <label data-error="wrong" data-success="right" for="modalLRInput13">Your password</label>
-                        </div>
-
-                        <div class="md-form form-sm mb-4">
-                            <i class="fa fa-lock prefix"></i>
-                            <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
-                            <label data-error="wrong" data-success="right" for="modalLRInput14">Repeat password</label>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-warning" data-dismiss="modal">Update</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Profile Modal ENDS -->
-
-    <!-- Calendar Modal BEGINS -->
-
-    <div class="modal" id="calendar">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title"></h5>
-                    <button class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="list-group">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h6>Your Profile</h6>
-                            <div class="modal-footer">
-                                <button class="btn btn-warning" data-dismiss="modal">Save-Update</button>
-                            </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-warning" data-dismiss="modal">Save-Update</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Calendar Modal ENDS -->
+<!-- Calendar Modal ENDS -->
 
-    <div class="slider">
-        <div class="load">
-        </div>
-        <div class="content">
-            <div class="principal">
-                <h1 class="animated fadeInUp">Local Time</h1>
-                <p class="animated fadeInUp">LIVE.LIFE.LOCALLY.</p>
+<div class="slider">
+    <div class="load">
+    </div>
+    <div class="content">
+        <div class="principal">
+            <h1 class="animated fadeInUp">Local Time</h1>
+            <p class="animated fadeInUp">LIVE.LIFE.LOCALLY.</p>
 
-                <div class="text-center">
+            <!-- <div class="text-center">
                     <a href="" class="btn btn-warning btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm" id="loginModal"> Plan A Trip</a>
-                </div>
-                <div class="text-center">
-                    <a href="" class="btn btn-warning btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm" id="loginModal"> View your Trips</a>
-                </div>
-            </div>
-        </div>
-    </div>
+                </div> -->
 
-
-    <!--other modal -->
-
-    </header>
-
-    <main class="main">
-        <div class="row">
-            <div class="col-md-12">
-                <form action="/planner" method="GET">
-                    <button type="submit">
-                        Create New Planner
+            <!--Button for Planning a Trip-->
+            <div class="text-center">
+                <form action="/plan" method="GET" name="">
+                    <button class="btn btn-warning btn-rounded my-3" type="submit" for="">
+                        Plan A Trip
                     </button>
                 </form>
             </div>
+
+
+            <div class="text-center">
+                <a href="" class="btn btn-warning btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm" id="loginModal"> View your Trips</a>
+            </div>
         </div>
+    </div>
+</div>
 
 
-        <html lang="en" class="full-height">
 
-            <div id="view-landing" class="view intro-2" style="">
-                <div class="full-bg-img">
-                    <div class="mask rgba-indigo-light flex-center">
-                        <div class="container text-center white-text wow fadeInUp">
-                            <h1 class="animated fadeInUp">Current Trips</h1>
-                            <p class="animated fadeInUp">Here's what you've got coming up!</p>
+
+
+<!--other modal -->
+
+<!-- </header> -->
+
+<main class="main">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="/planner" method="GET">
+                <button type="submit">
+                    Create New Planner
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+    <html lang="en" class="full-height">
+
+    <div id="view-landing" class="view intro-2" style="">
+        <div class="full-bg-img">
+            <div class="mask rgba-indigo-light flex-center">
+                <div class="container text-center white-text wow fadeInUp">
+                    <h1 class="animated fadeInUp">Current Trips</h1>
+                    <p class="animated fadeInUp">Here's what you've got coming up!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main content here -->
+    <main>
+        <div class="container">
+
+            <section id="info2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4">
+                            <div class="card">
+                                <!-- Card image -->
+                                <div class="view overlay">
+                                    <img class="card-img-top" src="./assets/img/backpack.jpg" alt="Card image cap">
+                                    <a href="#!">
+                                        <div class="mask rgba-white-slight" type="button" class="btn btn-warning" data-toggle="modal" data-target="#centralModalWarning"></div>
+                                    </a>
+                                </div>
+
+                                <!-- Card content -->
+                                <div class="card-body text-center">
+
+                                    <!-- Title -->
+                                    <h4 class="card-title">
+                                        <strong>Hawaii</strong>
+                                    </h4>
+                                    <!-- Subtitle -->
+                                    <h5 class="blue-text pb-2">
+                                        <strong>Short description of Austin</strong>
+                                    </h5>
+                                    <!-- Text -->
+                                    <p class="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium,
+                                        totam rem aperiam. </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4">
+                            <div class="card">
+                                <!-- Card image -->
+                                <div class="view overlay">
+                                    <img class="card-img-top" src="./assets/img/backpack.jpg" alt="Card image cap">
+                                    <a href="#!">
+                                        <div class="mask rgba-white-slight"></div>
+                                    </a>
+                                </div>
+
+                                <!-- Card content -->
+                                <div class="card-body text-center">
+
+                                    <!-- Title -->
+                                    <h4 class="card-title">
+                                        <strong>Austin</strong>
+                                    </h4>
+                                    <!-- Subtitle -->
+                                    <h5 class="blue-text pb-2">
+                                        <strong>Short description of Austin</strong>
+                                    </h5>
+                                    <!-- Text -->
+                                    <p class="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium,
+                                        totam rem aperiam. </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4">
+                            <div class="card">
+                                <!-- Card image -->
+                                <div class="view overlay">
+                                    <img class="card-img-top" src="./assets/img/backpack.jpg" alt="Card image cap">
+                                    <a href="#!">
+                                        <div class="mask rgba-white-slight">
+                                            <a href="#!">
+                                                <div class="mask rgba-white-slight" type="button" data-toggle="modal" data-target="#editTripModal"></div>
+                                            </a>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <!-- Card content -->
+                                <div class="card-body text-center">
+
+                                    <!-- Title -->
+                                    <h4 class="card-title">
+                                        <strong>Austin</strong>
+                                    </h4>
+                                    <!-- Subtitle -->
+                                    <h5 class="blue-text pb-2">
+                                        <strong>Short description of Austin</strong>
+                                    </h5>
+                                    <!-- Text -->
+                                    <p class="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium,
+                                        totam rem aperiam. </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <br>
+
+            <hr>
+
+            <section id="info1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="info-left">
+                                <img id="firstImg" src="./assets/img/background1.jpg">
+                                <div class="textImage">
+                                    <span>Plan more trips and create new memories</span>
+                                </div>
+                                <div>
+                                    <button id="exploreBtn" type="button" class="btn btn-warning">Explore</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="info-right">
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+
+
+            <!--.................................. MODAL FOR EDIT PLAN ......................... -->
+            <div class="modal" id="editTripModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"></h5>
+                            <button class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="list-group">
+                                <!-- <div class="d-flex w-100 justify-content-between"> -->
+                                <h6>Your Trip</h6>
+
+                                <!--TEST    TABLE-->
+
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-6 offset-md-3">
+                                            <ul class="list-group todo-list">
+                                                <li class="list-group-item new-item">
+                                                    <form id="todo-form">
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col-10">
+                                                                    <input class="new-item form-control" placeholder="Add a todo" type="text" />
+                                                                </div>
+                                                                <div class="col-2">
+                                                                    <button type="submitEdit" class="btn btn-success">Add Todo</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </li>
+                                                <span class="todo-container">
+                                                </span>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-warning" data-dismiss="modal" id="editTrip">Edit</button>
+                            <button class="btn btn-warning" data-dismiss="modal" id="saveTrip">Save</button>
                         </div>
                     </div>
                 </div>
             </div>
-            </header>
-            <!-- Main content here -->
-            <main>
-                <div class="container">
 
-                    <section id="info2">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="card">
-                                        <!-- Card image -->
-                                        <div class="view overlay">
-                                            <img class="card-img-top" src="./assets/img/backpack.jpg" alt="Card image cap">
-                                            <a href="#!">
-                                                <div class="mask rgba-white-slight" type="button" class="btn btn-warning" data-toggle="modal" data-target="#centralModalWarning"></div>
-                                            </a>
-                                        </div>
 
-                                        <!-- Card content -->
-                                        <div class="card-body text-center">
-
-                                            <!-- Title -->
-                                            <h4 class="card-title">
-                                                <strong>Hawaii</strong>
-                                            </h4>
-                                            <!-- Subtitle -->
-                                            <h5 class="blue-text pb-2">
-                                                <strong>Short description of Austin</strong>
-                                            </h5>
-                                            <!-- Text -->
-                                            <p class="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque
-                                                laudantium, totam rem aperiam. </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="card">
-                                        <!-- Card image -->
-                                        <div class="view overlay">
-                                            <img class="card-img-top" src="./assets/img/backpack.jpg" alt="Card image cap">
-                                            <a href="#!">
-                                                <div class="mask rgba-white-slight"></div>
-                                            </a>
-                                        </div>
-
-                                        <!-- Card content -->
-                                        <div class="card-body text-center">
-
-                                            <!-- Title -->
-                                            <h4 class="card-title">
-                                                <strong>Austin</strong>
-                                            </h4>
-                                            <!-- Subtitle -->
-                                            <h5 class="blue-text pb-2">
-                                                <strong>Short description of Austin</strong>
-                                            </h5>
-                                            <!-- Text -->
-                                            <p class="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque
-                                                laudantium, totam rem aperiam. </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="card">
-                                        <!-- Card image -->
-                                        <div class="view overlay">
-                                            <img class="card-img-top" src="./assets/img/backpack.jpg" alt="Card image cap">
-                                            <a href="#!">
-                                                <div class="mask rgba-white-slight"></div>
-                                            </a>
-                                        </div>
-
-                                        <!-- Card content -->
-                                        <div class="card-body text-center">
-
-                                            <!-- Title -->
-                                            <h4 class="card-title">
-                                                <strong>Austin</strong>
-                                            </h4>
-                                            <!-- Subtitle -->
-                                            <h5 class="blue-text pb-2">
-                                                <strong>Short description of Austin</strong>
-                                            </h5>
-                                            <!-- Text -->
-                                            <p class="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque
-                                                laudantium, totam rem aperiam. </p>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </section>
-
-                    <br>
-
-                    <hr>
-
-                    <section id="info1">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12 col-sm-12">
-                                    <div class="info-left">
-                                        <img id="firstImg" src="./assets/img/background1.jpg">
-                                        <div class="textImage">
-                                            <span>Plan more trips and create new memories</span>
-                                        </div>
-                                        <div>
-                                            <button id="exploreBtn" type="button" class="btn btn-warning">Explore</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-6">
-                                    <div class="info-right">
-                                        <br>
-                                    </div>
-                                </div>
-                            </div>
-                    </section>
-
-                    <!-- MODAL-->
-
-                    <!-- Central Modal Medium Warning -->
-                    <div class="modal fade" id="centralModalWarning" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
-                        <div class="modal-dialog modal-notify modal-warning" role="document">
-                            <!--Content-->
-                            <div class="modal-content">
-                                <!--Header-->
-                                <div class="modal-header">
-                                    <p class="card-title" class="heading lead">Destination</p>
-
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true" class="white-text">&times;</span>
-                                    </button>
-
-                                </div>
-
-                                <!--Body-->
-                                <div class="modal-body">
-                                    <div class="text-center">
-                                        <p>
-                                            <ul id="tripInfo" class="list-group list-group-flush">
-                                                <li class="list-group-item">
-                                                    <span class="badge badge-warning">Sneha</span>
-                                                    <span class="badge badge-warning">Wesley</span>
-                                                    <span class="badge badge-warning">Connor</span>
-                                                    <span class="badge badge-warning">William</span>
-                                                    <span class="badge badge-warning">Addis</span>
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <i class="fa fa-calendar-o" aria-hidden="true"></i>
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <i class="fa fa-dollar" aria-hidden="true"></i>
-                                                </li>
-                                                <li>
-                                                    <div class="md-form">
-                                                        <textarea id="textarea-char-counter" class="form-control md-textarea" length="120" rows="3"></textarea>
-                                                        <label for="textarea-char-counter">Type your text</label>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <!--Footer-->
-                                <div class="modal-footer justify-content-center">
-                                    Let the excitement begin ...
-                                </div>
-                            </div>
-                            <!--/.Content-->
-                        </div>
-                    </div>
-                  
-            </main>
-
-            </body>
-
-            <% include ../partials/datePickForm %>
-                <% include ../partials/footer %>
-                    <% include ../view_scripts/req %>
-                        <% include ../view_scripts/logout %>
-                            <% include ../view_scripts/datePick %>
+            <!--.................................. END MODAL FOR EDIT PLAN ......................... -->
     </main>
+
+    </body>
+
+    <% include ../partials/datePickForm %>
+        <% include ../partials/footer %>
+            <% include ../view_scripts/req %>
+                <% include ../view_scripts/logout %>
+                    <% include ../view_scripts/datePick %>
+</main>
