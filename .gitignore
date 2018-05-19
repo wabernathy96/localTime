@@ -1,7 +1,6 @@
 api_test
 
 # Config
-app/config/config.json
 app/config/keys
 
 
