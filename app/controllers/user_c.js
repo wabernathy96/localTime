@@ -18,14 +18,14 @@ module.exports = {
 
     plannerUpdate: (req,res) => {
         db.planner.update({
-            location: req.body.location
+            location: req.params.location
         },{
             where:{
                 userId: req.user.userId
             }
         }).then(
             (user) => {
-                res.redirect("/login")
+                res.redirect("/user_dash")
             }
         )
     },

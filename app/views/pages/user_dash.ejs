@@ -66,7 +66,20 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-warning" data-dismiss="modal">Update</button>
+                <div class="row">
+                    <div class="col-md-6">
+                        <form>
+                            <button class="btn btn-warning float-right" data-dismiss="modal">Update</button>
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <form action="/logout" method="GET">
+                            <button class="btn btn-outline-warning waves-effect" type="submit">
+                                Logout
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -306,6 +319,6 @@
     <% include ../partials/datePickForm %>
         <% include ../partials/footer %>
             <% include ../view_scripts/req %>
-                <% include ../view_scripts/logout %>
+            
                     <% include ../view_scripts/datePick %>
 </main>
