@@ -36,7 +36,7 @@ module.exports = {
         )
     },
 
-    test: (req,res) => {
+    userInfo: (req,res) => {
         db.user.findOne({
             where:{
                 userId: req.user.userId
@@ -44,7 +44,7 @@ module.exports = {
         }).then(
             (user) => {
                 console.log(user)
-                res.render('pages/user_dash', { user : user.dataValues.firstname}
+                res.render('pages/user_dash', { user : user.dataValues.firstName}
                 )
             }
         )
@@ -60,8 +60,10 @@ module.exports = {
             (planner) => {
                
                 if (!planner) {
+                    console.log("damn")
                     res.redirect('/userdash');
                 } else {
+                    console.log("here")
                     res.render('pages/user_dash', { plan : planner.dataValues.location, date: planner.dataValues.date})   
                 }
             }

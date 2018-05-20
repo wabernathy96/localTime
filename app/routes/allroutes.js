@@ -21,6 +21,17 @@ routes.post('/signup',passport.authenticate('local-signup',
 );
 
 // Login routes
+// routes.post('/login', passport.authenticate ('local-login', 
+
+//         {
+//             failureRedirect: '/'
+//         }
+//     ),
+//     (req,res) => {
+//         userC.getPlan(req,res);
+//     }
+// );
+
 routes.post('/login', passport.authenticate ('local-login', 
 
         {
@@ -28,7 +39,7 @@ routes.post('/login', passport.authenticate ('local-login',
         }
     ),
     (req,res) => {
-        userC.getPlan(req,res);
+        userC.userInfo(req,res);
     }
 );
 
