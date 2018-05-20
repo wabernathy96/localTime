@@ -12,7 +12,7 @@ let auth_help = require('./helpers/auth_help');
 let userC = require('../controllers/user_c');
 let plannerC = require('../controllers/planner_c');
 
-// Signup route
+// Signup routes
 routes.post('/signup',passport.authenticate('local-signup', 
         {
             successRedirect: '/userdash',
@@ -21,7 +21,18 @@ routes.post('/signup',passport.authenticate('local-signup',
     )
 );
 
-// Login route
+// Login routes
+// routes.post('/login', passport.authenticate ('local-login', 
+
+//         {
+//             failureRedirect: '/'
+//         }
+//     ),
+//     (req,res) => {
+//         userC.getPlan(req,res);
+//     }
+// );
+
 routes.post('/login', passport.authenticate ('local-login', 
         {
             failureRedirect: '/'
@@ -29,14 +40,6 @@ routes.post('/login', passport.authenticate ('local-login',
     ),
     (req,res) => {
         userC.userInfo(req,res);
-    }
-);
-
-// Logout routes
-routes.get('/logout', 
-    (req,res) => {
-        req.logOut();
-        res.redirect('/');
     }
 );
 
@@ -75,6 +78,14 @@ routes.get("/userdash/:user_id",
     }
 )
 
+// Logout routes
+routes.get('/logout', 
+    (req,res) => {
+        req.logOut();
+        res.redirect('/');
+    }
+);
+
 // Planner routes
 routes.get('/planner', 
     (req,res) => {
@@ -95,6 +106,9 @@ routes.get('/view',
     }
 );
 
+
+
+
 routes.get('/api/all_users',
     (req,res) => {
        userC.getAll(req,res);
@@ -106,6 +120,7 @@ routes.get('api/all_planners',
         planner_c.getAll(req,res);
     }
 )
+
 
 routes.get('/plan',
     (req,res) => {
