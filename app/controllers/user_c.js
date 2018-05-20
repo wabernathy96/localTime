@@ -26,7 +26,7 @@ module.exports = {
         console.log(req.params)
         db.user.findOne({
             where:{
-                user_id: req.params.user_id
+                user_id: req.params.userId
             }
         })
         .then(
@@ -39,7 +39,7 @@ module.exports = {
     test: (req,res) => {
         db.user.findOne({
             where:{
-                user_id: req.user.user_id
+                userId: req.user.userId
             }
         }).then(
             (user) => {
@@ -53,7 +53,7 @@ module.exports = {
     getPlan: (req, res ) => {
         db.planner.findOne({
             where:{
-                userUserId: req.user.user_id
+                userId: req.user.userId
 
                 //foreign key = to user id only created by user logged in
             }

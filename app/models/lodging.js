@@ -32,6 +32,11 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.DATE(),
       defaultValue: sequelize.literal('NOW()'),
     },
+    updateAt:
+    {
+      type: DataTypes.DATE(),
+      defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+    },
   })
 
   lodging.associate = function(models) {
