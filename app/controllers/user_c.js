@@ -58,9 +58,10 @@ module.exports = {
                 //foreign key = to user id only created by user logged in
             }
         }).then( //take info an append to ejs page user_dash
-            (user) => {
+            (planner) => {
                
-                res.render('pages/user_dash', { plan : user.dataValues.location, date: user.dataValues.date}
+                res
+                .render('pages/user_dash', { plan : planner.dataValues.location, date: planner.dataValues.date}
                 
                 );
             }

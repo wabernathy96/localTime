@@ -52,6 +52,12 @@ module.exports =  (sequelize, DataTypes) => {
         foreignKey: 'groupId'
       }
     );
+
+    Planner.belongsTo(models.user,
+      {
+        foreignKey: 'userId'
+      }
+    );
   };
   return Planner;
 }

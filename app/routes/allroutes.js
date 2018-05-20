@@ -28,7 +28,8 @@ routes.post('/login', passport.authenticate ('local-login',
         }
     ),
     (req,res) => {
-        userC.getPlan(req,res);
+        // userC.getPlan(req,res);
+        res.redirect('/userdash');
     }
 );
 
