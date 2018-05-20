@@ -17,7 +17,6 @@ module.exports = {
         ).then(
             (user) => {
                 if (location) {
-
                     db.planner.update({
                         city: location
                     }, {
