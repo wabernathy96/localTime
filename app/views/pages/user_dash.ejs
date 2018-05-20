@@ -4,7 +4,7 @@
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
         <a class="navbar-brand" href="#">
-            <strong>Local Times</strong>
+            <strong>Local Time</strong>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
         aria-expanded="false" aria-label="Toggle navigation">
@@ -168,8 +168,62 @@
             <section id="info2">
                 <div class="container">
                     <div class="row">
+                        <div class="col-md-4 col-sm-4">
+                            <div class="card">
+                                <!-- Card image -->
+                                <div class="view overlay">
+                                    <img class="card-img-top" src="./assets/img/backpack.jpg" alt="Card image cap">
+                                    <a href="#!">
+                                        <div class="mask rgba-white-slight" type="button" class="btn btn-warning" data-toggle="modal" data-target="#centralModalWarning"></div>
+                                    </a>
+                                </div>
 
-                                <% for(let i = 0; i < plan.length; i++) { %>
+                                <!-- Card content -->
+                                <div class="card-body text-center">
+
+                                    <!-- Title -->
+                                    <h4 class="card-title">
+                                        <strong>Hawaii</strong>
+                                    </h4>
+                                    <!-- Subtitle -->
+                                    <h5 class="blue-text pb-2">
+                                        <strong>Short description of Austin</strong>
+                                    </h5>
+                                    <!-- Text -->
+                                    <p class="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium,
+                                        totam rem aperiam. </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4">
+                            <div class="card">
+                                <!-- Card image -->
+                                <div class="view overlay">
+                                    <img class="card-img-top" src="./assets/img/backpack.jpg" alt="Card image cap">
+                                    <a href="#!">
+                                        <div class="mask rgba-white-slight"></div>
+                                    </a>
+                                </div>
+
+                                <!-- Card content -->
+                                <div class="card-body text-center">
+
+                                    <!-- Title -->
+                                    <h4 class="card-title">
+                                        <strong>Austin</strong>
+                                    </h4>
+                                    <!-- Subtitle -->
+                                    <h5 class="blue-text pb-2">
+                                        <strong>Short description of Austin</strong>
+                                    </h5>
+                                    <!-- Text -->
+                                    <p class="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium,
+                                        totam rem aperiam. </p>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="col-md-4 col-sm-4">
                             <div class="card">
                                 <!-- Card image -->
@@ -189,7 +243,7 @@
 
                                     <!-- Title -->
                                     <h4 class="card-title">
-                                        <strong><%= plan[i].dataValues.planner.dataValues.city %></strong>
+                                        <strong>Austin</strong>
                                     </h4>
                                     <!-- Subtitle -->
                                     <h5 class="blue-text pb-2">
@@ -202,7 +256,6 @@
                                 </div>
                             </div>
                         </div>
-                        <% } %>
                     </div>
 
                 </div>
