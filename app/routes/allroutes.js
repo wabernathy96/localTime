@@ -81,8 +81,9 @@ routes.get("/userdash/:user_id",
 // Logout routes
 routes.get('/logout', 
     (req,res) => {
-        req.logOut();
-        res.redirect('/');
+        req.session.destroy((err)=>{if(err)throw(err)}).then(
+            res.redirect('/')
+        )  
     }
 );
 
