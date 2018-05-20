@@ -54,16 +54,16 @@ module.exports = {
         db.planner.findOne({
             where:{
                 userId: req.user.userId
-
                 //foreign key = to user id only created by user logged in
             }
         }).then( //take info an append to ejs page user_dash
             (planner) => {
                
-                res
-                .render('pages/user_dash', { plan : planner.dataValues.location, date: planner.dataValues.date}
-                
-                );
+                if (!planner) {
+                    res.redirect('/userdash');
+                } else {
+                    res.render('pages/user_dash', { plan : planner.dataValues.location, date: planner.dataValues.date})   
+                }
             }
         );   
     }
