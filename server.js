@@ -54,7 +54,7 @@ app.use('/', routes);
 
 
 // Sync Database
-models.sequelize.sync({force:true}).then(() => {
+models.sequelize.sync().then(() => {
   console.log('Server is synced and Live');
   // Start server
   app.listen(PORT, function () {

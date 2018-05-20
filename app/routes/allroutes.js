@@ -34,7 +34,6 @@ routes.post('/signup',passport.authenticate('local-signup',
 // );
 
 routes.post('/login', passport.authenticate ('local-login', 
-
         {
             failureRedirect: '/'
         }
@@ -118,7 +117,7 @@ routes.get('/api/all_users',
 
 routes.get('api/all_planners',
     (req,res) => {
-        plannerC.getAll(req,res);
+        planner_c.getAll(req,res);
     }
 )
 

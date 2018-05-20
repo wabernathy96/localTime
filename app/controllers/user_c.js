@@ -37,6 +37,7 @@ module.exports = {
     },
 
     userInfo: (req,res) => {
+        console.log("here")
         db.user.findOne({
             where:{
                 userId: req.user.userId
@@ -50,22 +51,22 @@ module.exports = {
         )
     },
 
-    getPlan: (req, res ) => {
-        db.planner.findOne({
-            where:{
-                userId: req.user.userId
-                //foreign key = to user id only created by user logged in
-            }
-        }).then( //take info an append to ejs page user_dash
-            (planner) => {
-                if (!planner) {
-                    console.log("damn")
-                    res.redirect('/userdash');
-                } else {
-                    console.log("here")
-                    res.render('pages/user_dash', { plan : planner.dataValues.location, date: planner.dataValues.date})   
-                }
-            }
-        );   
-    }
+    // getPlan: (req, res ) => {
+    //     db.planner.findOne({
+    //         where:{
+    //             userId: req.user.userId
+    //             //foreign key = to user id only created by user logged in
+    //         }
+    //     }).then( //take info an append to ejs page user_dash
+    //         (planner) => {
+    //             if (!planner) {
+    //                 console.log("damn")
+    //                 res.redirect('/userdash');
+    //             } else {
+    //                 console.log("here")
+    //                 res.render('pages/user_dash', { plan : planner.dataValues.location, date: planner.dataValues.date})   
+    //             }
+    //         }
+    //     );   
+    // }
 }
