@@ -51,6 +51,21 @@ module.exports = {
         )
     },
 
+    userInfo: (req,res) => {
+        console.log("here")
+        db.user.update({firstName:req.body.firstName},{
+            where:{
+                userId: req.user.userId
+            }
+        }).then(
+            (user) => {
+                console.log(user)
+                res.render('pages/user_dash', { user : user.dataValues.firstName}
+                )
+            }
+        )
+    },
+
     // getPlan: (req, res ) => {
     //     db.planner.findOne({
     //         where:{
