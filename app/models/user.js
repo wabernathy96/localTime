@@ -82,12 +82,6 @@ module.exports = (sequelize, DataTypes) => {
                 foreignKey: 'userId'
             }
         );
-
-        User.hasOne(models.planner,
-            {
-                foreignKey: 'userId'
-            }
-        )
     };
     return User;
 }
