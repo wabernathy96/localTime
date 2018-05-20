@@ -15,7 +15,7 @@ let plannerC = require('../controllers/planner_c');
 // Signup routes
 routes.post('/signup',passport.authenticate('local-signup', 
         {
-            successRedirect: '/userdash',
+            successRedirect: '/dash',
             failureRedirect: '/'
         }
     )
@@ -46,16 +46,18 @@ routes.get('/auth/google/callback', passport.authenticate('google',
 }
 );
 
+
+
 // Dash route
-routes.get('/dash/', auth_help.loggedIn, 
+routes.get('/dash',
 (req,res) => {
-    res.render('pages/auth_dash');
+    userC.userInfo(req,res);
 }
 );
 
-routes.get('/userdash',
+routes.post('/test',auth_help.loggedIn,
     (req, res) => {
-        res.render('pages/user_dash');
+        userC.plannerUpdate(req,res);
     }
 );
 
@@ -70,21 +72,7 @@ routes.get('/logout',
     }
 );
 
-routes.put('/login/:location', passport.authenticate ('local-login', 
-        {
-            failureRedirect: '/'
-        }
-    ),
-    (req,res) => {
-        console.log(req.params.location)
-        userC.plannerUpdate(req,res);
-    }
-);
-// app.put('/api/contacts:id', (req, res) => {
-//     console.log('req.params.id', req.params.id);
-//     res.json(contact);
-// });
-routes.post('/location',(req, res) => {
+routes.post('/dash/:id',(req, res) => {
     var test = req.body.location
         userC.plannerUpdate(req,res);
     }

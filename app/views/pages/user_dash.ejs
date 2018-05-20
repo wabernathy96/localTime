@@ -181,8 +181,9 @@
             <section id="info2">
                 <div class="container">
                     <div class="row">
+                            
                         <% for(let i = 0; i < plan.length; i++) { %>
-                            <div class="col-md-4 col-sm-4">
+                            <div class="col-md-4 col-sm-4" >
                                 <div class="card">
                                     <!-- Card image -->
                                     <div class="view overlay">
@@ -219,6 +220,7 @@
                                 </div>
                             </div>
                             <% } %>
+                            
                     </div>
 
                 </div>
@@ -249,68 +251,69 @@
                         </div>
                     </div>
             </section>
-
-
             <!--.................................. MODAL FOR EDIT PLAN ......................... -->
-
-
-
             <% for(let i = 0; i < plan.length; i++) { %>
-                <div class="modal fade bd-example-modal-lg" id="editTripModal<%= plan[i].dataValues.planner.dataValues.planner_id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                    <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">
-                                                <%= plan[i].dataValues.planner.dataValues.city %> trip information!</h5>
-                                        </div>
-                                    <form class="form-inline" action="/login/:location" method="PUT">
-                                            <div class="form-group mb-2">
-                                                <label for="staticEmail2" class="sr-only">Email</label>
-                                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Location: <%= plan[i].dataValues.planner.dataValues.city %>">
-                                            </div>
-                                            <div class="form-group mx-sm-3 mb-2">
-                                                <label for="inputPassword2" class="sr-only">location</label>
-                                                <input type="text" class="form-control" name="location" placeholder="Location">
-                                            </div>
-                                            <button type="submit" class="btn btn-primary mb-2">Confirm update!</button>
-                                    </form>
-                                    <form class="form-inline">
-                                            <div class="form-group mb-2">
-                                                <label for="staticEmail2" class="sr-only">Email</label>
-                                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="From date: <%= plan[i].dataValues.planner.dataValues.availableFrom %>">
-                                            </div>
-                                            <div class="form-group mx-sm-3 mb-2">
-                                                <label for="inputPassword2" class="sr-only">From</label>
-                                                <input type="password" class="form-control" id="inputPassword2" placeholder="From">
-                                            </div>
-                                            <button type="submit" class="btn btn-primary mb-2">Confirm update!</button>
-                                    </form>
-                                    <form class="form-inline">
-                                            <div class="form-group mb-2">
-                                                <label for="staticEmail2" class="sr-only">Email</label>
-                                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value=" To date: <%= plan[i].dataValues.planner.dataValues.availableTo %>">
-                                            </div>
-                                            <div class="form-group mx-sm-3 mb-2">
-                                                <label for="inputPassword2" class="sr-only">To</label>
-                                                <input type="password" class="form-control" id="inputPassword2" placeholder="To">
-                                            </div>
-                                            <button type="submit" class="btn btn-primary mb-2">Confirm update!</button>
-                                    </form>
-                                    <form class="form-inline">
-                                            <div class="form-group mb-2">
-                                                <label for="staticEmail2" class="sr-only">Email</label>
-                                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value=" Add members:">
-                                            </div>
-                                            <div class="form-group mx-sm-3 mb-2">
-                                                <label for="inputPassword2" class="sr-only">To</label>
-                                                <input type="password" class="form-control" id="inputPassword2" placeholder="user email">
-                                            </div>
-                                            <button type="submit" class="btn btn-primary mb-2">Add!</button>
-                                    </form>
+                <div class="modal fade bd-example-modal-lg" id="editTripModal<%= plan[i].dataValues.planner.dataValues.planner_id %>" tabindex="-1"
+                    role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">
+                                    <%= plan[i].dataValues.planner.dataValues.city %> trip information!</h5>
                             </div>
+                            <form class="form-inline" action="/dash" method="PUT">
+                                <div class="form-group mb-2">
+                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Location: <%= plan[i].dataValues.planner.dataValues.city %>">
+                                </div>
+                                <div class="form-group mx-sm-3 mb-2">
+                                    <input type="text" class="form-control" name="location" placeholder="Location">
+                                    <input type="text" id="disabledTextInput" name="planner_id" class="form-control" value="<%= plan[i].dataValues.planner.dataValues.planner_id %>">
+                                </div>
+                                <button type="submit" class="btn btn-primary mb-2">Confirm update!</button>
+                            </form>
+
+                            <form class="form-inline" action="/dash" method="PUT">
+                                <div class="form-group mb-2">
+                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="From date: <%= plan[i].dataValues.planner.dataValues.availableFrom %>">
+                                </div>
+                                <div class="form-group mx-sm-3 mb-2">
+                                    <input type="text" class="form-control" name="from" placeholder="From">
+                                    <input type="text" id="disabledTextInput" name="planner_id" class="form-control" value="<%= plan[i].dataValues.planner.dataValues.planner_id %>">
+                                    
+                                </div>
+                                <button type="submit" class="btn btn-primary mb-2">Confirm update!</button>
+                            </form>
+
+
+                            <form class="form-inline" action="/dash" method="PUT">
+                                <div class="form-group mb-2">
+                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value=" To date: <%= plan[i].dataValues.planner.dataValues.availableTo %>">
+                                </div>
+                                <div class="form-group mx-sm-3 mb-2">
+                                    <input type="text" class="form-control" id="inputPassword2" placeholder="To" name="to">
+                                    <input type="text" id="disabledTextInput" name="planner_id" class="form-control" value="<%= plan[i].dataValues.planner.dataValues.planner_id %>">
+                                </div>
+                                <button type="submit" class="btn btn-primary mb-2">Confirm update!</button>
+                            </form>
+
+
+
+                            <form class="form-inline">
+                                <div class="form-group mb-2">
+                                    <label for="staticEmail2" class="sr-only">Email</label>
+                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value=" Add members:">
+                                </div>
+                                <div class="form-group mx-sm-3 mb-2">
+                                    <label for="inputPassword2" class="sr-only">To</label>
+                                    <input type="password" class="form-control" id="inputPassword2" placeholder="user email">
+                                </div>
+                                <button type="submit" class="btn btn-primary mb-2">Add!</button>
+                            </form>
                         </div>
                     </div>
-                <% } %>
+                </div>
+                <% }%>
+               
                     <!--.................................. END MODAL FOR EDIT PLAN ......................... -->
     </main>
 
@@ -319,6 +322,6 @@
     <% include ../partials/datePickForm %>
         <% include ../partials/footer %>
             <% include ../view_scripts/req %>
-            
-                    <% include ../view_scripts/datePick %>
+
+                <% include ../view_scripts/datePick %>
 </main>
