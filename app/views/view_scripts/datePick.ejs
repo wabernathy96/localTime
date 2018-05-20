@@ -1,10 +1,44 @@
 <script>
+    $.fn.datetimepicker.Constructor.Default = $.extend({},      $.fn.datetimepicker.Constructor.Default, {
+            icons: 
+            {
+                time: 'far fa-clock',
+                date: 'far fa-calendar',
+                up: 'far fa-arrow-up',
+                down: 'far fa-arrow-down',
+                previous: 'far fa-chevron-left',
+                next: 'far fa-chevron-right',
+                today: 'far fa-calendar-check-o',
+                clear: 'far fa-trash',
+                close: 'far fa-times'
+            },
+            options:
+            {
+                
+            }
+        }
+    );
+
     let counter = 1;
 
-    $(() => {
-        $(`#datetimepicker-start${counter}`).datetimepicker();
-        $(`#datetimepicker-end${counter}`).datetimepicker();
-    });
+    $(
+        () => {
+            $(`#datetimepicker-start${counter}`).datetimepicker(
+                {
+                    Default: moment().format('DD MM YYYY hh:mm'),
+                    daysOfWeekDisabled: [1, 2, 3, 4],
+                    viewMode: 'years'
+                }
+            );
+            $(`#datetimepicker-end${counter}`).datetimepicker(
+                {
+                    Default: moment().format('DD MM YYYY hh:mm'),
+                    daysOfWeekDisabled: [1, 2, 3, 4],
+                    viewMode: 'years'
+                }
+            );
+        }
+    );
 
     $('#add-date-btn').click(
         () => {
@@ -35,23 +69,39 @@
                     </div>
                 </div>
             `);
-            $(`#datetimepicker-start${counter}`).datetimepicker();
-            $(`#datetimepicker-end${counter}`).datetimepicker();
+            $(`#datetimepicker-start${counter}`).datetimepicker(
+                {
+                    Default: moment().format('DD MM YYYY hh:mm'),
+                    daysOfWeekDisabled: [1, 2, 3, 4],
+                    viewMode: 'years'
+                }
+            );
+            $(`#datetimepicker-end${counter}`).datetimepicker(
+                {
+                    Default: moment().format('DD MM YYYY hh:mm'),
+                    daysOfWeekDisabled: [1, 2, 3, 4],
+                    viewMode: 'years'
+                }
+            );
         }
     );
 
     $('#finish-btn').click(
         () => {
             let dates = $('.datetimepicker-input');
+            
             console.log('dates', dates);
+
             let datePairs = [];
+
             for (let i = 0; i < dates.length; i += 2) {
-                let pair = {
-                    start: dates[i].value,
-                    end: dates[i + 1].value
+                let pair = 
+                {
+                    start: moment(dates[i].value).format('x'),
+                    end: moment(dates[i + 1].value).format('x')
                 };
-                var test = JSON.stringify(pair);
-                datePairs.push(test);
+                var pairObj = JSON.stringify(pair);
+                datePairs.push(pairObj);
             }
             console.log(`Date Pairs: ${datePairs}`);
         }
