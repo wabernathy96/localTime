@@ -28,7 +28,7 @@ routes.post('/login', passport.authenticate ('local-login',
         }
     ),
     (req,res) => {
-        userC.test(req,res);
+        userC.getPlan(req,res);
     }
 );
 

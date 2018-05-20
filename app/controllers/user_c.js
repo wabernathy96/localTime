@@ -48,5 +48,22 @@ module.exports = {
                 )
             }
         )
+    },
+
+    getPlan: (req, res ) => {
+        db.planner.findOne({
+            where:{
+                userUserId: req.user.user_id
+
+                //foreign key = to user id only created by user logged in
+            }
+        }).then( //take info an append to ejs page user_dash
+            (user) => {
+               
+                res.render('pages/user_dash', { plan : user.dataValues.location, date: user.dataValues.date}
+                
+                );
+            }
+        );   
     }
 }

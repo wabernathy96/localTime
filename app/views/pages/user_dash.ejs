@@ -299,7 +299,8 @@
                         <div class="modal-body">
                             <div class="list-group">
                                 <!-- <div class="d-flex w-100 justify-content-between"> -->
-                                <h6>Your Trip</h6>
+                                <h6><%= (typeof plan != "undefined" ? plan : "") %></h6>
+                                <h6><%= (typeof date != "undefined" ? date : "") %></h6>
 
                                 <!--TEST    TABLE-->
 
@@ -312,7 +313,7 @@
                                                         <div class="container">
                                                             <div class="row">
                                                                 <div class="col-10">
-                                                                    <input class="new-item form-control" placeholder="Add a todo" type="text" />
+                                                                    <input class="new-item form-control" id="location" name="location" placeholder="Add a todo" type="text" />
                                                                 </div>
                                                                 <div class="col-2">
                                                                     <button type="submitEdit" class="btn btn-success">Add Todo</button>
