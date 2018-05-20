@@ -58,7 +58,6 @@ module.exports = {
             }
         }).then( //take info an append to ejs page user_dash
             (planner) => {
-               
                 if (!planner) {
                     res.redirect('/userdash');
                 } else {

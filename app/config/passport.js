@@ -43,9 +43,9 @@ module.exports = (passport, user) => {
                                     email: email,
                                     password:
                                     userPassword,
-                                    firstname: req.body.firstname,
-                                    lastname: req.body.lastname,
-                                    userimg: req.body.userimg
+                                    firstName: req.body.firstName,
+                                    lastName: req.body.lastName,
+                                    userImg: req.body.userImg
                                 };
                     
                             User.create(data)
