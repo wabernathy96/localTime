@@ -163,14 +163,14 @@ module.exports = (passport, user) => {
     //serialize
     passport.serializeUser(
         (user, done) => {
-            done(null, user.user_id);
+            done(null, user.userId);
         }
     );
 
     // deserialize user 
     passport.deserializeUser(
-        (user_id, done) => {
-            User.findById(user_id)
+        (userId, done) => {
+            User.findById(userId)
             .then(
                 (user) => {
                     if (user) {
