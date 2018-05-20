@@ -22,11 +22,14 @@ routes.post('/signup',passport.authenticate('local-signup',
 
 // Login routes
 routes.post('/login', passport.authenticate ('local-login', 
+
         {
-            successRedirect: '/userdash',
             failureRedirect: '/'
         }
-    )
+    ),
+    (req,res) => {
+        userC.test(req,res);
+    }
 );
 
 // Google Login Routes
@@ -35,7 +38,8 @@ routes.get('/auth/google', passport.authenticate(
 )
 );
 
-routes.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }),
+routes.get('/auth/google/callback', passport.authenticate('google',
+ { failureRedirect: '/' }),
 (req, res) => {
     // Successful authentication, redirect to dashboard.
     res.redirect('/dash');

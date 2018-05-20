@@ -23,6 +23,7 @@ module.exports = {
     },
 
     getUser: (req,res) => {
+        console.log(req.params)
         db.user.findOne({
             where:{
                 user_id: req.params.user_id
@@ -31,6 +32,20 @@ module.exports = {
         .then(
             (user) => {
                 res.json(user);
+            }
+        )
+    },
+
+    test: (req,res) => {
+        db.user.findOne({
+            where:{
+                user_id: req.user.user_id
+            }
+        }).then(
+            (user) => {
+                console.log(user)
+                res.render('pages/user_dash', { user : user.dataValues.firstname}
+                )
             }
         )
     }

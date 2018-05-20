@@ -13,7 +13,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul class="navbar-nav mr-auto mt-lg-0">
                 <li class="nav-item">
-                    <a href="#profile" data-toggle="modal" data-target="#profile">Edit Profile</a>
+                    <a href="#profile" data-toggle="modal" data-target="#profile"><%= (typeof user != "undefined" ? user : "") %></a>
                 </li>
             </ul>
         </div>

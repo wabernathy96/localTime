@@ -1,8 +1,10 @@
 const Sequelize = require('sequelize');
 const express = require("express");
 const path = require("path");
+
 //Templating
 const ejs = require("ejs");
+
 // Middleware
 const session = require('express-session');
 const passport = require('passport');
