@@ -4,8 +4,8 @@ const path = require("path");
 
 //Templating
 const ejs = require("ejs");
-
 // Middleware
+const methodOverride = require("method-override");
 const session = require('express-session');
 const passport = require('passport');
 const bodyParser = require("body-parser");
@@ -20,6 +20,7 @@ var PORT = process.env.PORT || 9001;
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
 
 // Passport Middleware
 // Session secret

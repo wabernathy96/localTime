@@ -3,23 +3,23 @@
 </head>
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
-        <a class="navbar-brand" href="#">
-            <strong>Local Times</strong>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+    <a class="navbar-brand" href="#">
+        <strong>Local Times</strong>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
         aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <ul class="navbar-nav mr-auto mt-lg-0">
-                <li class="nav-item">
-                    <a href="#profile" data-toggle="modal" data-target="#profile">
-                        <%= (typeof user != "undefined" ? user : "default") %>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav mr-auto mt-lg-0">
+            <li class="nav-item">
+                <a href="#profile" data-toggle="modal" data-target="#profile">
+                    <%= (typeof user != "undefined" ? user : "default") %>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
 </nav>
 
 <!--Modal for Editing Profile -->
@@ -168,41 +168,44 @@
             <section id="info2">
                 <div class="container">
                     <div class="row">
+                        <% for(let i = 0; i < plan.length; i++) { %>
+                            <div class="col-md-4 col-sm-4">
+                                <div class="card">
+                                    <!-- Card image -->
+                                    <div class="view overlay">
+                                        <img class="card-img-top" src="./assets/img/backpack.jpg" alt="Card image cap">
+                                        <a href="#!">
+                                            <div class="mask rgba-white-slight">
+                                                <a href="#!">
+                                                    <div class="mask rgba-white-slight" type="button" data-toggle="modal" data-target="#editTripModal<%= plan[i].dataValues.planner.dataValues.planner_id %>"></div>
+                                                </a>
+                                            </div>
+                                        </a>
+                                    </div>
 
-                                <% for(let i = 0; i < plan.length; i++) { %>
-                        <div class="col-md-4 col-sm-4">
-                            <div class="card">
-                                <!-- Card image -->
-                                <div class="view overlay">
-                                    <img class="card-img-top" src="./assets/img/backpack.jpg" alt="Card image cap">
-                                    <a href="#!">
-                                        <div class="mask rgba-white-slight">
-                                            <a href="#!">
-                                                <div class="mask rgba-white-slight" type="button" data-toggle="modal" data-target="#editTripModal"></div>
-                                            </a>
-                                        </div>
-                                    </a>
-                                </div>
+                                    <!-- Card content -->
+                                    <div class="card-body text-center">
 
-                                <!-- Card content -->
-                                <div class="card-body text-center">
+                                        <!-- Title -->
+                                        <h4 class="card-title">
+                                            <strong>
+                                                <%= plan[i].dataValues.planner.dataValues.city %>
+                                            </strong>
+                                        </h4>
+                                        <!-- Subtitle -->
+                                        <h5 class="blue-text pb-2">
+                                            <strong>
+                                                <%= plan[i].dataValues.planner.dataValues.events%>
+                                            </strong>
+                                        </h5>
+                                        <!-- Text -->
+                                        <p class="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium,
+                                            totam rem aperiam. </p>
 
-                                    <!-- Title -->
-                                    <h4 class="card-title">
-                                        <strong><%= plan[i].dataValues.planner.dataValues.city %></strong>
-                                    </h4>
-                                    <!-- Subtitle -->
-                                    <h5 class="blue-text pb-2">
-                                        <strong>Short description of Austin</strong>
-                                    </h5>
-                                    <!-- Text -->
-                                    <p class="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium,
-                                        totam rem aperiam. </p>
-
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <% } %>
+                            <% } %>
                     </div>
 
                 </div>
@@ -236,60 +239,66 @@
 
 
             <!--.................................. MODAL FOR EDIT PLAN ......................... -->
-            <div class="modal" id="editTripModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title"></h5>
-                            <button class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="list-group">
-                                <!-- <div class="d-flex w-100 justify-content-between"> -->
-                                <h6><%= (typeof plan != "undefined" ? plan : "") %></h6>
-                                <h6><%= (typeof date != "undefined" ? date : "") %></h6>
 
-                                <!--TEST    TABLE-->
 
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-6 offset-md-3">
-                                            <ul class="list-group todo-list">
-                                                <li class="list-group-item new-item">
-                                                    <form id="todo-form">
-                                                        <div class="container">
-                                                            <div class="row">
-                                                                <div class="col-10">
-                                                                    <input class="new-item form-control" id="location" name="location" placeholder="Add a todo" type="text" />
-                                                                </div>
-                                                                <div class="col-2">
-                                                                    <button type="submitEdit" class="btn btn-success">Add Todo</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </li>
-                                                <span class="todo-container">
-                                                </span>
-                                            </ul>
+
+            <% for(let i = 0; i < plan.length; i++) { %>
+                <div class="modal fade bd-example-modal-lg" id="editTripModal<%= plan[i].dataValues.planner.dataValues.planner_id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                    <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">
+                                                <%= plan[i].dataValues.planner.dataValues.city %> trip information!</h5>
                                         </div>
-                                    </div>
-                                </div>
-
-
-
+                                    <form class="form-inline" action="/login/:location" method="PUT">
+                                            <div class="form-group mb-2">
+                                                <label for="staticEmail2" class="sr-only">Email</label>
+                                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Location: <%= plan[i].dataValues.planner.dataValues.city %>">
+                                            </div>
+                                            <div class="form-group mx-sm-3 mb-2">
+                                                <label for="inputPassword2" class="sr-only">location</label>
+                                                <input type="text" class="form-control" name="location" placeholder="Location">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary mb-2">Confirm update!</button>
+                                    </form>
+                                    <form class="form-inline">
+                                            <div class="form-group mb-2">
+                                                <label for="staticEmail2" class="sr-only">Email</label>
+                                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="From date: <%= plan[i].dataValues.planner.dataValues.availableFrom %>">
+                                            </div>
+                                            <div class="form-group mx-sm-3 mb-2">
+                                                <label for="inputPassword2" class="sr-only">From</label>
+                                                <input type="password" class="form-control" id="inputPassword2" placeholder="From">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary mb-2">Confirm update!</button>
+                                    </form>
+                                    <form class="form-inline">
+                                            <div class="form-group mb-2">
+                                                <label for="staticEmail2" class="sr-only">Email</label>
+                                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value=" To date: <%= plan[i].dataValues.planner.dataValues.availableTo %>">
+                                            </div>
+                                            <div class="form-group mx-sm-3 mb-2">
+                                                <label for="inputPassword2" class="sr-only">To</label>
+                                                <input type="password" class="form-control" id="inputPassword2" placeholder="To">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary mb-2">Confirm update!</button>
+                                    </form>
+                                    <form class="form-inline">
+                                            <div class="form-group mb-2">
+                                                <label for="staticEmail2" class="sr-only">Email</label>
+                                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value=" Add members:">
+                                            </div>
+                                            <div class="form-group mx-sm-3 mb-2">
+                                                <label for="inputPassword2" class="sr-only">To</label>
+                                                <input type="password" class="form-control" id="inputPassword2" placeholder="user email">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary mb-2">Add!</button>
+                                    </form>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-warning" data-dismiss="modal" id="editTrip">Edit</button>
-                            <button class="btn btn-warning" data-dismiss="modal" id="saveTrip">Save</button>
-                        </div>
                     </div>
-                </div>
-            </div>
-
-
-            <!--.................................. END MODAL FOR EDIT PLAN ......................... -->
+                <% } %>
+                    <!--.................................. END MODAL FOR EDIT PLAN ......................... -->
     </main>
 
     </body>

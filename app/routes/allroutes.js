@@ -21,17 +21,6 @@ routes.post('/signup',passport.authenticate('local-signup',
     )
 );
 
-// Login routes
-// routes.post('/login', passport.authenticate ('local-login', 
-
-//         {
-//             failureRedirect: '/'
-//         }
-//     ),
-//     (req,res) => {
-//         userC.getPlan(req,res);
-//     }
-// );
 
 routes.post('/login', passport.authenticate ('local-login', 
         {
@@ -71,12 +60,6 @@ routes.get('/userdash',
 );
 
 
-routes.get("/userdash/:user_id",
-    (req,res) => {
-        
-        userC.getUser(req,res);
-    }
-)
 
 // Logout routes
 routes.get('/logout', 
@@ -86,10 +69,23 @@ routes.get('/logout',
     }
 );
 
-// Planner routes
-routes.get('/planner', 
+routes.put('/login/:location', passport.authenticate ('local-login', 
+        {
+            failureRedirect: '/'
+        }
+    ),
     (req,res) => {
-        userC.getCards(req,res);
+        console.log(req.params.location)
+        userC.plannerUpdate(req,res);
+    }
+);
+// app.put('/api/contacts:id', (req, res) => {
+//     console.log('req.params.id', req.params.id);
+//     res.json(contact);
+// });
+routes.post('/location',(req, res) => {
+    var test = req.body.location
+        userC.plannerUpdate(req,res);
     }
 );
 
@@ -105,28 +101,6 @@ routes.get('/view',
         res.render('pages/view_trips');
     }
 );
-
-
-
-
-routes.get('/api/all_users',
-    (req,res) => {
-       userC.getAll(req,res);
-    }
-)
-
-routes.get('api/all_planners',
-    (req,res) => {
-        planner_c.getAll(req,res);
-    }
-)
-
-
-routes.get('/plan',
-    (req,res) => {
-       userC.getCards(req,res);
-    }
-)
 
 
 
