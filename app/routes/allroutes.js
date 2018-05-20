@@ -8,8 +8,9 @@ const passport = require('passport');
 const db = require('../models');
 // Require helper functions
 let auth_help = require('./helpers/auth_help');
-
+// Require controllers
 let userC = require('../controllers/user_c');
+let plannerC = require('../controllers/planner_c');
 
 // Signup routes
 routes.post('/signup',passport.authenticate('local-signup', 
@@ -114,6 +115,13 @@ routes.get('/api/all_users',
        userC.getAll(req,res);
     }
 )
+
+routes.get('api/all_planners',
+    (req,res) => {
+        plannerC.getAll(req,res);
+    }
+)
+
 
 routes.get('/plan',
     (req,res) => {

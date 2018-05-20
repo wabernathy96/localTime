@@ -89,21 +89,33 @@
     $('#finish-btn').click(
         () => {
             let dates = $('.datetimepicker-input');
-            
-            console.log('dates', dates);
 
             let datePairs = [];
 
             for (let i = 0; i < dates.length; i += 2) {
-                let pair = 
-                {
-                    start: moment(dates[i].value).format('x'),
-                    end: moment(dates[i + 1].value).format('x')
-                };
-                var pairObj = JSON.stringify(pair);
-                datePairs.push(pairObj);
+                
+                let pair = JSON.stringify(
+                    {
+                        start: moment(dates[i].value).format('x'),
+                        end: moment(dates[i + 1].value).format('x')
+                    }
+                );
+
+                datePairs.push(pair);
+                console.log(datePairs);
+
+                for (let j=0; j < datePairs.length; i++) {
+                    let startDate = datePairs[j].start;
+                    let endDate = datePairs[j].end;
+
+                    console.log(startDate);
+                    console.log(endDate);
+                }
             }
-            console.log(`Date Pairs: ${datePairs}`);
+
+            
+            
+
         }
     );
 </script>
