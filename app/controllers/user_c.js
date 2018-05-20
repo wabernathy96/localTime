@@ -38,14 +38,15 @@ module.exports = {
 
     userInfo: (req,res) => {
         console.log("here")
-        db.user.findOne({
+        db.user.findAll({
             where:{
                 userId: req.user.userId
-            }
+            },include: [{ model: db.planner, where: { userID: req.user.userId }, required: false }]
         }).then(
             (user) => {
-                console.log(user)
-                res.render('pages/user_dash', { user : user.dataValues.firstName}
+                console.log(user[0].dataValues.planner.dataValues.city)
+                res.render('pages/user_dash', { user : user[0].dataValues.firstName, plan: user}
+                
                 )
             }
         )
