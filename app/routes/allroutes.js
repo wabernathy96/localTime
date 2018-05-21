@@ -15,10 +15,12 @@ let plannerC = require('../controllers/planner_c');
 // Signup routes
 routes.post('/signup',passport.authenticate('local-signup', 
         {
-            successRedirect: '/dash',
             failureRedirect: '/'
         }
-    )
+    ),
+    (req,res) => {
+        userC.userInfo(req,res);
+    }
 );
 
 
@@ -42,7 +44,7 @@ routes.get('/auth/google/callback', passport.authenticate('google',
  { failureRedirect: '/' }),
 (req, res) => {
     // Successful authentication, redirect to dashboard.
-    res.redirect('/dash');
+    userC.userInfo(req,res);
 }
 );
 
