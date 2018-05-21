@@ -46,8 +46,6 @@ routes.get('/auth/google/callback', passport.authenticate('google',
 }
 );
 
-
-
 // Dash route
 routes.get('/dash',
 (req,res) => {
@@ -60,8 +58,6 @@ routes.post('/test',auth_help.loggedIn,
         userC.plannerUpdate(req,res);
     }
 );
-
-
 
 // Logout routes
 routes.get('/logout', 
@@ -84,14 +80,6 @@ routes.get('/',
         res.render('pages/home')
     }
 );
-//view trips route
-routes.get('/view',
-    (req, res) => {
-        res.render('pages/view_trips');
-    }
-);
-
-
 
 // Export routes to server.js
 module.exports = routes;
